@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমার অনলাইন শপ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f6f9; color: #333; }
+        header { background-color: #111827; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #3b82f6; }
+        .cart-btn { background: #2563eb; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/800/300'); background-size: cover; background-position: center; color: white; text-align: center; padding: 3rem 1rem; }
+        .hero h1 { font-size: 2rem; margin-bottom: 10px; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
+        .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
+        .card h3 { margin: 10px 0 5px; font-size: 1.2rem; }
+        .price { color: #16a34a; font-weight: bold; font-size: 1.1rem; margin-bottom: 10px; }
+        .btn { background-color: #2563eb; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
+        .order-btn { background-color: #16a34a; margin-top: 5px; }
+        footer { text-align: center; padding: 1.5rem; background: #111827; color: white; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ই-শপ</div>
+        <div class="cart-btn">কার্ট: <span id="cart-count">0</span></div>
+    </header>
+
+    <section class="hero">
+        <h1>সেরা দামে প্রিমিয়াম পণ্য কিনুন</h1>
+        <p>সহজ ও নিরাপদ কেনাকাটা করুন আমাদের সাথে</p>
+    </section>
+
+    <div class="container">
+        <h2 style="margin-bottom: 1.5rem; text-align: center;">আমাদের পণ্যসমূহ</h2>
+        <div class="products">
+            
+            <div class="card">
+                <img src="https://picsum.photos/200/200?random=1" alt="স্মার্টওয়াচ">
+                <h3>স্মার্টওয়াচ</h3>
+                <p class="price">৳ ২৪৫০</p>
+                <button class="btn" onclick="addToCart()">কার্টে যোগ করুন</button>
+                <button class="btn order-btn" onclick="buyWhatsApp('স্মার্টওয়াচ', 2450)">সরাসরি অর্ডার করুন</button>
+            </div>
+
+            <div class="card">
+                <img src="https://picsum.photos/200/200?random=2" alt="হেডফোন">
+                <h3>ওয়্যারলেস হেডফোন</h3>
+                <p class="price">৳ ১৮০০</p>
+                <button class="btn" onclick="addToCart()">কার্টে যোগ করুন</button>
+                <button class="btn order-btn" onclick="buyWhatsApp('ওয়্যারলেস হেডফোন', 1800)">সরাসরি অর্ডার করুন</button>
+            </div>
+
+            <div class="card">
+                <img src="https://picsum.photos/200/200?random=3" alt="স্মার্ট ব্যাকপ্যাক">
+                <h3>স্মার্ট ব্যাকপ্যাক</h3>
+                <p class="price">৳ ১২৫০</p>
+                <button class="btn" onclick="addToCart()">কার্টে যোগ করুন</button>
+                <button class="btn order-btn" onclick="buyWhatsApp('স্মার্ট ব্যাকপ্যাক', 1250)">সরাসরি অর্ডার করুন</button>
+            </div>
+
+            <div class="card">
+                <img src="https://picsum.photos/200/200?random=4" alt="স্পোর্টস জুতা">
+                <h3>স্পোর্টস জুতা</h3>
+                <p class="price">৳ ৩২০০</p>
+                <button class="btn" onclick="addToCart()">কার্টে যোগ করুন</button>
+                <button class="btn order-btn" onclick="buyWhatsApp('স্পোর্টস জুতা', 3200)">সরাসরি অর্ডার করুন</button>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; ২০২৬ আমার অনলাইন শপ। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        let count = 0;
+        const myPhoneNumber = "8801700000000"; 
+
+        function addToCart() {
+            count++;
+            document.getElementById('cart-count').innerText = count;
+            alert("পণ্যটি কার্টে যোগ করা হয়েছে!");
+        }
+
+        function buyWhatsApp(productName, price) {
+            const message = `হ্যালো, আমি এই পণ্যটি কিনতে চাই:%0A- পণ্য: ${productName}%0A- দাম: ৳${price}`;
+            const url = `https://wa.me/${myPhoneNumber}?text=${message}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
