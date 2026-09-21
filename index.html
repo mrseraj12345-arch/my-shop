@@ -3,213 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScamX Store</title>
+    <title>ScamX Store - Premium Tech & Gadgets</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --success: #10b981;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
+
         body {
-            background-color: #f4f6f9;
-            color: #333;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding-bottom: 60px;
         }
+
+        /* Top Notice Bar */
+        .top-bar {
+            background: linear-gradient(90deg, #1e1b4b, #312e81);
+            color: #e0e7ff;
+            text-align: center;
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Header */
         header {
-            background-color: #1a252f;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
             color: #fff;
             padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #00d2d3;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+
         .cart-btn {
-            background: #ff9f43;
+            background: var(--accent);
             color: #fff;
             border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
+            padding: 10px 18px;
+            border-radius: 30px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
+
+        .cart-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=800&q=80');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
         }
+
         .hero h1 {
-            font-size: 26px;
-            margin-bottom: 8px;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 15px;
+            max-width: 500px;
+            margin: 0 auto 20px;
+        }
+
+        /* Search & Filter Section */
+        .filter-section {
+            max-width: 1100px;
+            margin: -25px auto 30px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-box {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        /* Products Section */
         .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 15px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
+
         .section-title {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
         }
+
         .product-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            position: relative;
         }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
         .product-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            background-color: #f1f5f9;
         }
+
         .product-info {
-            padding: 15px;
-            text-align: center;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
+
         .product-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .product-price {
-            color: #10ac84;
             font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 12px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
         }
+
+        .product-price {
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .card-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: auto;
+        }
+
         .btn-cart {
             width: 100%;
-            background: #2e86de;
-            color: white;
+            background: #f1f5f9;
+            color: var(--text-dark);
             border: none;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 6px;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
             cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
+
+        .btn-cart:hover {
+            background: #e2e8f0;
+        }
+
         .btn-order {
             width: 100%;
-            background: #25D366;
+            background: var(--success);
             color: white;
             border: none;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
             cursor: pointer;
             text-decoration: none;
-            display: block;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
         }
-        /* Cart Modal */
+
+        .btn-order:hover {
+            background: #059669;
+        }
+
+        /* Cart & Order Modal */
         .cart-modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(5px);
             justify-content: center;
             align-items: center;
             z-index: 2000;
+            padding: 15px;
         }
+
         .cart-content {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
+            padding: 25px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
         .cart-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f8fafc;
         }
+
+        .form-group {
+            margin-top: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
         .close-cart {
-            background: #ff4757;
-            color: white;
+            background: #f1f5f9;
+            color: var(--text-light);
             border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            float: right;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
             cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-light);
+            font-size: 13px;
+            margin-top: 50px;
+            border-top: 1px solid #e2e8f0;
         }
     </style>
 </head>
 <body>
 
+    <div class="top-bar">
+        ⚡ সারাদেশে ক্যাশ অন ডেলিভারি দেওয়া হয় | ১০০% অরিজিনাল গ্যাজেট
+    </div>
+
     <header>
-        <div class="logo">ScamX Store</div>
-        <button class="cart-btn" onclick="toggleCart()">কার্ট: <span id="cart-count">0</span></button>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-bolt"></i> ScamX Store
+            </div>
+            <button class="cart-btn" onclick="toggleCart()">
+                <i class="fa-solid fa-bag-shopping"></i> কার্ট (<span id="cart-count">0</span>)
+            </button>
+        </div>
     </header>
 
     <section class="hero">
-        <h1>সেরা দামে প্রিমিয়াম গ্যাজেট কিনুন</h1>
-        <p>সহজ ও নিরাপদ কেনাকাটা করুন আমাদের সাথে</p>
+        <h1>প্রিমিয়াম গ্যাজেটস অ্যান্ড অ্যাকসেসরিজ</h1>
+        <p>সেরা মূল্যে আকর্ষণীয় টেক প্রোডাক্ট অর্ডার করুন সরাসরি হোয়াটসঅ্যাপে!</p>
     </section>
 
+    <div class="filter-section">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass" style="color: #94a3b8;"></i>
+            <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="পছন্দের প্রোডাক্ট খুঁজুন...">
+        </div>
+    </div>
+
     <div class="container">
-        <h2 class="section-title">আমাদের পণ্যসমূহ</h2>
-        <div class="product-grid">
+        <h2 class="section-title"><i class="fa-solid fa-fire" style="color: #ef4444;"></i> হট প্রোডাক্টসমূহ</h2>
+        <div class="product-grid" id="productGrid">
 
-            <!-- Product 1 -->
+            <!-- Watch -->
             <div class="product-card">
-                <img src="https://i.ibb.co/LhbkS7c/watch.jpg" alt="ঘড়ি">
+                <span class="badge">Hot Deal</span>
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="ঘড়ি">
                 <div class="product-info">
-                    <div class="product-title">ঘড়ি (Skeleton Watch)</div>
+                    <div class="product-title">Skeleton Luxury Watch</div>
                     <div class="product-price">৳ ৬৩০</div>
-                    <button class="btn-cart" onclick="addToCart('ঘড়ি', 630)">কার্টে যোগ করুন</button>
-                    <a class="btn-order" href="https://wa.me/8801765314487?text=আমি%20ঘড়ি%20(৳৬৩০)%20অর্ডার%20করতে%20চাই" target="_blank">সরাসরি অর্ডার করুন</a>
+                    <div class="card-buttons">
+                        <button class="btn-cart" onclick="addToCart('Skeleton Luxury Watch', 630)">
+                            <i class="fa-solid fa-cart-plus"></i> কার্টে রাখুন
+                        </button>
+                        <button class="btn-order" onclick="quickOrder('Skeleton Luxury Watch', 630)">
+                            <i class="fa-brands fa-whatsapp"></i> সরাসরি অর্ডার
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Product 2 -->
+            <!-- RGB Keyboard Mouse -->
             <div class="product-card">
-                <img src="https://i.ibb.co/N1tQv5P/keyboard.jpg" alt="RGB কীবোর্ড মাউস">
+                <span class="badge">Trending</span>
+                <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80" alt="RGB কীবোর্ড মাউস">
                 <div class="product-info">
-                    <div class="product-title">RGB কীবোর্ড মাউস</div>
+                    <div class="product-title">RGB Gaming Keyboard & Mouse Combo</div>
                     <div class="product-price">৳ ৯৯৯</div>
-                    <button class="btn-cart" onclick="addToCart('RGB কীবোর্ড মাউস', 999)">কার্টে যোগ করুন</button>
-                    <a class="btn-order" href="https://wa.me/8801765314487?text=আমি%20RGB%20কীবোর্ড%20মাউস%20(৳৯৯৯)%20অর্ডার%20করতে%20চাই" target="_blank">সরাসরি অর্ডার করুন</a>
+                    <div class="card-buttons">
+                        <button class="btn-cart" onclick="addToCart('RGB Gaming Keyboard & Mouse Combo', 999)">
+                            <i class="fa-solid fa-cart-plus"></i> কার্টে রাখুন
+                        </button>
+                        <button class="btn-order" onclick="quickOrder('RGB Gaming Keyboard & Mouse Combo', 999)">
+                            <i class="fa-brands fa-whatsapp"></i> সরাসরি অর্ডার
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Product 3 -->
+            <!-- Bluetooth Earbuds -->
             <div class="product-card">
-                <img src="https://i.ibb.co/3sS7L71/bluetooth.jpg" alt="ব্লুটুথ ইয়ারবাডস">
+                <span class="badge">Best Seller</span>
+                <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80" alt="ব্লুটুথ ইয়ারবাডস">
                 <div class="product-info">
-                    <div class="product-title">ব্লুটুথ ইয়ারবাডস</div>
+                    <div class="product-title">TWS Wireless Bluetooth Earbuds</div>
                     <div class="product-price">৳ ১৪৯৯</div>
-                    <button class="btn-cart" onclick="addToCart('ব্লুটুথ ইয়ারবাডস', 1499)">কার্টে যোগ করুন</button>
-                    <a class="btn-order" href="https://wa.me/8801765314487?text=আমি%20ব্লুটুথ%20ইয়ারবাডস%20(৳১৪৯৯)%20অর্ডার%20করতে%20চাই" target="_blank">সরাসরি অর্ডার করুন</a>
+                    <div class="card-buttons">
+                        <button class="btn-cart" onclick="addToCart('TWS Wireless Bluetooth Earbuds', 1499)">
+                            <i class="fa-solid fa-cart-plus"></i> কার্টে রাখুন
+                        </button>
+                        <button class="btn-order" onclick="quickOrder('TWS Wireless Bluetooth Earbuds', 1499)">
+                            <i class="fa-brands fa-whatsapp"></i> সরাসরি অর্ডার
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Product 4 -->
+            <!-- RGB Headphones -->
             <div class="product-card">
-                <img src="https://i.ibb.co/6P8vD1C/headphone.jpg" alt="RGB হেডফোন">
+                <span class="badge">Popular</span>
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="RGB হেডফোন">
                 <div class="product-info">
-                    <div class="product-title">RGB হেডফোন</div>
+                    <div class="product-title">RGB Pro Gaming Headphone</div>
                     <div class="product-price">৳ ১৩৫০</div>
-                    <button class="btn-cart" onclick="addToCart('RGB হেডফোন', 1350)">কার্টে যোগ করুন</button>
-                    <a class="btn-order" href="https://wa.me/8801765314487?text=আমি%20RGB%20হেডফোন%20(৳১৩৫০)%20অর্ডার%20করতে%20চাই" target="_blank">সরাসরি অর্ডার করুন</a>
+                    <div class="card-buttons">
+                        <button class="btn-cart" onclick="addToCart('RGB Pro Gaming Headphone', 1350)">
+                            <i class="fa-solid fa-cart-plus"></i> কার্টে রাখুন
+                        </button>
+                        <button class="btn-order" onclick="quickOrder('RGB Pro Gaming Headphone', 1350)">
+                            <i class="fa-brands fa-whatsapp"></i> সরাসরি অর্ডার
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -219,244 +468,44 @@
     <!-- Cart Modal -->
     <div class="cart-modal" id="cartModal">
         <div class="cart-content">
-            <button class="close-cart" onclick="toggleCart()">বন্ধ করুন</button>
-            <h3 style="margin-bottom: 15px;">আপনার কার্ট</h3>
-            <div id="cart-items"></div><!DOCTYPE html>
-<html lang="bn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScamX Store</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f4f6f9;
-            color: #333;
-        }
-        header {
-            background-color: #1a252f;
-            color: #fff;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #00d2d3;
-        }
-        .cart-btn {
-            background: #ff9f43;
-            color: #fff;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=800&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        .hero h1 {
-            font-size: 26px;
-            margin-bottom: 8px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .product-info {
-            padding: 15px;
-            text-align: center;
-        }
-        .product-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .product-price {
-            color: #10ac84;
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-        .btn-cart {
-            width: 100%;
-            background: #2e86de;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 6px;
-            cursor: pointer;
-        }
-        .btn-order {
-            width: 100%;
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            font-weight: bold;
-        }
-        /* Cart Modal */
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-        .cart-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-        .close-cart {
-            background: #ff4757;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            float: right;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">ScamX Store</div>
-        <button class="cart-btn" onclick="toggleCart()">কার্ট: <span id="cart-count">0</span></button>
-    </header>
-
-    <section class="hero">
-        <h1>সেরা দামে প্রিমিয়াম গ্যাজেট কিনুন</h1>
-        <p>সহজ ও নিরাপদ কেনাকাটা করুন আমাদের সাথে</p>
-    </section>
-
-    <div class="container">
-        <h2 class="section-title">আমাদের পণ্যসমূহ</h2>
-        <div class="product-grid">
-
-            <!-- Product 1 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/LhbkS7c/watch.jpg" alt="ঘড়ি">
-                <div class="product-info">
-                    <div class="product-title">ঘড়ি (Skeleton Watch)</div>
-                    <div class="product-price">৳ ৬৩০</div>
-                    <button class="btn-cart" onclick="addToCart('ঘড়ি', 630)">কার্টে যোগ করুন</button>
-                    <a class="btn-order" href="https://wa.me/8801765314487?text=আমি%20ঘড়ি%20(৳৬৩০)%20অর্ডার%20করতে%20চাই" target="_blank">সরাসরি অর্ডার করুন</a>
-                </div>
+            <div class="cart-header">
+                <h3><i class="fa-solid fa-bag-shopping"></i> শপিং কার্ট</h3>
+                <button class="close-cart" onclick="toggleCart()">✕</button>
             </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/N1tQv5P/keyboard.jpg" alt="RGB কীবোর্ড মাউস">
-                <div class="product-info">
-                    <div class="product-title">RGB কীবোর্ড মাউস</div>
-                    <div class="product-price">৳ ৯৯৯</div>
-                    <button class="btn-cart" onclick="addToCart('RGB কীবোর্ড মাউস', 999)">কার্টে যোগ করুন</button>
-                    <a class="btn-order" href="https://wa.me/8801765314487?text=আমি%20RGB%20কীবোর্ড%20মাউস%20(৳৯৯৯)%20অর্ডার%20করতে%20চাই" target="_blank">সরাসরি অর্ডার করুন</a>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/3sS7L71/bluetooth.jpg" alt="ব্লুটুথ ইয়ারবাডস">
-                <div class="product-info">
-                    <div class="product-title">ব্লুটুথ ইয়ারবাডস</div>
-                    <div class="product-price">৳ ১৪৯৯</div>
-                    <button class="btn-cart" onclick="addToCart('ব্লুটুথ ইয়ারবাডস', 1499)">কার্টে যোগ করুন</button>
-                    <a class="btn-order" href="https://wa.me/8801765314487?text=আমি%20ব্লুটুথ%20ইয়ারবাডস%20(৳১৪৯৯)%20অর্ডার%20করতে%20চাই" target="_blank">সরাসরি অর্ডার করুন</a>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <img src="https://i.ibb.co/6P8vD1C/headphone.jpg" alt="RGB হেডফোন">
-                <div class="product-info">
-                    <div class="product-title">RGB হেডফোন</div>
-                    <div class="product-price">৳ ১৩৫০</div>
-                    <button class="btn-cart" onclick="addToCart('RGB হেডফোন', 1350)">কার্টে যোগ করুন</button>
-                    <a class="btn-order" href="https://wa.me/8801765314487?text=আমি%20RGB%20হেডফোন%20(৳১৩৫০)%20অর্ডার%20করতে%20চাই" target="_blank">সরাসরি অর্ডার করুন</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <button class="close-cart" onclick="toggleCart()">বন্ধ করুন</button>
-            <h3 style="margin-bottom: 15px;">আপনার কার্ট</h3>
+            
             <div id="cart-items"></div>
-            <h4 style="margin-top: 15px;">মোট: ৳ <span id="cart-total">0</span></h4>
-            <a id="checkout-btn" class="btn-order" style="margin-top: 15px; text-align: center;" href="#" target="_blank">হোয়াটসঅ্যাপে অর্ডার কনফার্ম করুন</a>
+            
+            <div style="margin-top: 15px; text-align: right; font-weight: bold; font-size: 18px; color: var(--accent);">
+                মোট: ৳ <span id="cart-total">0</span>
+            </div>
+
+            <div class="form-group">
+                <label>আপনার নাম *</label>
+                <input type="text" id="custName" placeholder="আপনার নাম লিখুন">
+            </div>
+            <div class="form-group">
+                <label>ঠিকানা *</label>
+                <textarea id="custAddress" rows="2" placeholder="পূর্ণাঙ্গ ঠিকানা লিখুন"></textarea>
+            </div>
+
+            <button class="btn-order" style="margin-top: 20px;" onclick="checkoutWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে অর্ডার পাঠান
+            </button>
         </div>
     </div>
 
+    <footer>
+        &copy; 2026 ScamX Store. All Rights Reserved. <br> Powered by GitHub Pages
+    </footer>
+
     <script>
         let cart = [];
+        const waNumber = "8801765314487";
 
         function addToCart(title, price) {
             cart.push({title, price});
             updateCart();
-            alert(title + " কার্টে যোগ করা হয়েছে!");
+            alert(title + " কার্টে যুক্ত হয়েছে!");
         }
 
         function updateCart() {
@@ -464,66 +513,94 @@
             let cartItems = document.getElementById('cart-items');
             cartItems.innerHTML = '';
             let total = 0;
-            let msg = "আমি কার্ট থেকে এই পণ্যগুলো অর্ডার করতে চাই:\n";
+
+            if(cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align:center; color:#94a3b8; padding:20px;">আপনার কার্ট খালি!</p>';
+            }
 
             cart.forEach((item, index) => {
                 total += item.price;
-                msg += `${index + 1}. ${item.title} - ৳${item.price}\n`;
-                cartItems.innerHTML += `<div class="cart-item"><span>${item.title}</span><span>৳${item.price}</span></div>`;
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${item.title}</strong><br>
+                            <span style="color:var(--text-light); font-size:13px;">৳${item.price}</span>
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="color:#ef4444; border:none; background:none; cursor:pointer;">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>`;
             });
 
-            msg += `\nমোট মূল্য: ৳${total}`;
             document.getElementById('cart-total').innerText = total;
-
-            let waUrl = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
-            document.getElementById('checkout-btn').href = waUrl;
         }
 
-        function toggleCart() {
-            let modal = document.getElementById('cartModal');
-            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-        }
-    </script>
-</body>
-</html>
-
-            <h4 style="margin-top: 15px;">মোট: ৳ <span id="cart-total">0</span></h4>
-            <a id="checkout-btn" class="btn-order" style="margin-top: 15px; text-align: center;" href="#" target="_blank">হোয়াটসঅ্যাপে অর্ডার কনফার্ম করুন</a>
-        </div>
-    </div>
-
-    <script>
-        let cart = [];
-
-        function addToCart(title, price) {
-            cart.push({title, price});
+        function removeFromCart(index) {
+            cart.splice(index, 1);
             updateCart();
-            alert(title + " কার্টে যোগ করা হয়েছে!");
-        }
-
-        function updateCart() {
-            document.getElementById('cart-count').innerText = cart.length;
-            let cartItems = document.getElementById('cart-items');
-            cartItems.innerHTML = '';
-            let total = 0;
-            let msg = "আমি কার্ট থেকে এই পণ্যগুলো অর্ডার করতে চাই:\n";
-
-            cart.forEach((item, index) => {
-                total += item.price;
-                msg += `${index + 1}. ${item.title} - ৳${item.price}\n`;
-                cartItems.innerHTML += `<div class="cart-item"><span>${item.title}</span><span>৳${item.price}</span></div>`;
-            });
-
-            msg += `\nমোট মূল্য: ৳${total}`;
-            document.getElementById('cart-total').innerText = total;
-
-            let waUrl = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
-            document.getElementById('checkout-btn').href = waUrl;
         }
 
         function toggleCart() {
             let modal = document.getElementById('cartModal');
             modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function quickOrder(title, price) {
+            let name = prompt("আপনার নাম দিন:");
+            let address = prompt("আপনার ডেলিভারি ঠিকানা দিন:");
+            if(!name || !address) {
+                alert("অর্ডার সম্পন্ন করতে নাম ও ঠিকানা দেওয়া প্রয়োজন!");
+                return;
+            }
+            let msg = `*নতুন অর্ডার (ScamX Store)*\n\n`;
+            msg += `📦 *প্রোডাক্ট:* ${title}\n`;
+            msg += `💰 *মূল্য:* ৳${price}\n\n`;
+            msg += `👤 *কাস্টমার নাম:* ${name}\n`;
+            msg += `📍 *ঠিকানা:* ${address}`;
+            
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function checkoutWhatsApp() {
+            if(cart.length === 0) {
+                alert("আপনার কার্ট খালি!");
+                return;
+            }
+            let name = document.getElementById('custName').value;
+            let address = document.getElementById('custAddress').value;
+
+            if(!name || !address) {
+                alert("অনুগ্রহ করে আপনার নাম ও ঠিকানা প্রদান করুন!");
+                return;
+            }
+
+            let total = document.getElementById('cart-total').innerText;
+            let msg = `*নতুন কার্ট অর্ডার (ScamX Store)*\n\n`;
+            msg += `*অর্ডারকৃত পণ্যসমূহ:*\n`;
+            
+            cart.forEach((item, index) => {
+                msg += `${index + 1}. ${item.title} - ৳${item.price}\n`;
+            });
+
+            msg += `\n💵 *মোট মূল্য:* ৳${total}\n\n`;
+            msg += `👤 *কাস্টমার নাম:* ${name}\n`;
+            msg += `📍 *ঠিকানা:* ${address}`;
+
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function filterProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                let title = card.querySelector('.product-title').innerText.toLowerCase();
+                if(title.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
         }
     </script>
 </body>
