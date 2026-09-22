@@ -11,7 +11,7 @@
     <style>
         :root {
             --bg-dark: #070913;
-            --card-bg: rgba(18, 22, 41, 0.75);
+            --card-bg: rgba(18, 22, 41, 0.85);
             --neon-orange: #ff5e00;
             --neon-orange-glow: rgba(255, 94, 0, 0.35);
             --platinum-gold: #ffb703;
@@ -36,7 +36,7 @@
                 radial-gradient(at 90% 90%, rgba(255, 94, 0, 0.12) 0px, transparent 50%);
             background-attachment: fixed;
             color: var(--text-white);
-            padding-bottom: 80px;
+            padding-bottom: 90px;
         }
 
         a { text-decoration: none; color: inherit; }
@@ -55,7 +55,7 @@
 
         /* Ultra Header */
         header {
-            background: rgba(11, 15, 30, 0.85);
+            background: rgba(11, 15, 30, 0.9);
             backdrop-filter: blur(15px);
             padding: 14px 20px;
             position: sticky;
@@ -74,7 +74,7 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
             background: linear-gradient(135deg, #fff 30%, var(--neon-orange));
             -webkit-background-clip: text;
@@ -83,17 +83,6 @@
             align-items: center;
             gap: 8px;
             letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            font-size: 9px;
-            background: var(--neon-orange);
-            color: #fff;
-            -webkit-text-fill-color: #fff;
-            padding: 2px 7px;
-            border-radius: 20px;
-            font-weight: 800;
-            letter-spacing: 1px;
         }
 
         .search-box {
@@ -135,122 +124,156 @@
             box-shadow: 0 2px 10px var(--neon-orange-glow);
         }
 
-        .cart-icon-btn {
-            position: relative;
-            font-size: 22px;
-            color: #fff;
-            cursor: pointer;
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            border: 1px solid var(--glass-border);
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -3px;
-            right: -3px;
-            background: var(--neon-orange);
-            color: #fff;
-            font-size: 10px;
-            font-weight: 800;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 8px var(--neon-orange);
-        }
-
         /* Hero Banner */
         .hero-section {
             max-width: 1280px;
-            margin: 20px auto;
+            margin: 15px auto;
             padding: 0 15px;
         }
 
         .hero-banner {
             background: linear-gradient(135deg, rgba(121, 40, 202, 0.3), rgba(255, 94, 0, 0.2)), var(--card-bg);
             backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 40px 25px;
+            border-radius: 20px;
+            padding: 25px 20px;
             text-align: center;
             position: relative;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .owner-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: linear-gradient(90deg, rgba(255, 183, 3, 0.15), rgba(255, 94, 0, 0.15));
+            background: rgba(255, 183, 3, 0.15);
             border: 1px solid var(--platinum-gold);
             color: var(--platinum-gold);
-            padding: 6px 16px;
+            padding: 4px 14px;
             border-radius: 30px;
             font-size: 11px;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
         .hero-banner h1 {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+            color: #ffffff;
         }
 
         .hero-banner p {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-dim);
-            max-width: 600px;
-            margin: 0 auto 20px;
         }
 
-        /* Flash Sale Bar */
-        .flash-sale-bar {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin-bottom: 20px;
+        /* Section Title Header */
+        .sec-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            border: 1px solid var(--glass-border);
+            align-items: center;
+            margin: 25px 0 15px;
         }
 
-        .flash-title {
-            font-size: 16px;
+        .sec-title {
+            font-size: 18px;
             font-weight: 800;
-            color: var(--neon-orange);
+            color: #fff;
             display: flex;
             align-items: center;
             gap: 8px;
-            text-shadow: 0 0 10px var(--neon-orange-glow);
         }
 
-        .timer-box {
+        .sec-title i { color: var(--neon-orange); }
+
+        /* Category Card Grid (Screenshot Inspired) */
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 640px) {
+            .cat-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .cat-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .cat-card-box {
+            position: relative;
+            height: 120px;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .cat-card-box:hover {
+            transform: translateY(-4px);
+            border-color: var(--neon-orange);
+            box-shadow: 0 8px 25px var(--neon-orange-glow);
+        }
+
+        .cat-card-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.65);
+            transition: transform 0.4s;
+        }
+
+        .cat-card-box:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.5);
+        }
+
+        .cat-card-title {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+            letter-spacing: 0.5px;
+        }
+
+        /* Active Filter Chip Bar */
+        .filter-chips {
             display: flex;
-            align-items: center;
-            gap: 6px;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            scrollbar-width: none;
+        }
+
+        .filter-chip {
+            background: var(--card-bg);
+            color: var(--text-dim);
+            padding: 8px 16px;
+            border-radius: 30px;
             font-size: 12px;
             font-weight: 700;
-            color: var(--text-dim);
+            white-space: nowrap;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+            transition: all 0.2s;
         }
 
-        .timer-unit {
-            background: rgba(255, 255, 255, 0.1);
+        .filter-chip.active, .filter-chip:hover {
+            background: linear-gradient(135deg, var(--neon-orange), #d64900);
             color: #fff;
-            padding: 4px 8px;
-            border-radius: 6px;
-            border: 1px solid var(--glass-border);
+            border-color: var(--neon-orange);
+            box-shadow: 0 2px 10px var(--neon-orange-glow);
         }
 
         /* Products Grid */
@@ -277,13 +300,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             border-color: rgba(255, 94, 0, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--neon-orange-glow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--neon-orange-glow);
         }
 
         .badge-discount {
@@ -297,7 +320,6 @@
             padding: 3px 8px;
             border-radius: 20px;
             z-index: 2;
-            box-shadow: 0 2px 8px rgba(255, 0, 85, 0.4);
         }
 
         .product-img-box {
@@ -316,7 +338,6 @@
             max-width: 85%;
             max-height: 85%;
             object-fit: contain;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
         }
 
         .product-brand {
@@ -370,108 +391,73 @@
             justify-content: center;
             gap: 6px;
             box-shadow: 0 4px 15px var(--neon-orange-glow);
-            transition: all 0.2s;
         }
 
-        .btn-order:hover {
-            filter: brightness(1.1);
+        /* Bottom Sticky Navigation Bar (Screenshot Style) */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 15, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 8px 0;
+            z-index: 9999;
         }
 
-        /* Features Bar */
-        .features-bar {
-            max-width: 1280px;
-            margin: 40px auto;
-            padding: 0 15px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        @media(min-width: 768px) {
-            .features-bar { grid-template-columns: repeat(4, 1fr); }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-dim);
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
         }
 
-        .feature-item {
-            background: var(--card-bg);
-            padding: 18px;
-            border-radius: 16px;
+        .nav-item i { font-size: 18px; }
+
+        .nav-item.active { color: var(--neon-orange); }
+
+        .nav-item-home {
+            background: linear-gradient(135deg, var(--neon-orange), #d64900);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 12px;
-            border: 1px solid var(--glass-border);
+            justify-content: center;
+            margin-top: -20px;
+            box-shadow: 0 4px 15px var(--neon-orange-glow);
+            border: 3px solid var(--bg-dark);
         }
-
-        .feature-item i {
-            font-size: 26px;
-            color: var(--neon-orange);
-        }
-
-        .feature-item h4 { font-size: 13px; font-weight: 700; color: #fff; }
-        .feature-item p { font-size: 11px; color: var(--text-dim); }
+        .nav-item-home i { font-size: 20px; }
 
         /* Footer */
         footer {
             background: #04060d;
             color: var(--text-dim);
-            padding: 50px 20px 20px;
-            margin-top: 60px;
+            padding: 40px 20px;
+            margin-top: 50px;
             border-top: 1px solid var(--glass-border);
-        }
-
-        .footer-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 30px;
-        }
-
-        @media(min-width: 768px) {
-            .footer-container { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        .footer-col h3 {
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .footer-col p, .footer-col li {
-            font-size: 12px;
-            line-height: 2;
-            list-style: none;
         }
 
         .copyright-text {
             text-align: center;
             font-size: 12px;
             color: #64748b;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .floating-wa {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--success-green);
-            color: white;
-            padding: 12px 22px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 20px rgba(0, 230, 118, 0.4);
-            z-index: 9999;
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Announcement -->
+    <!-- Top Bar -->
     <div class="top-bar">
         <div>🚀 BANGLADESH'S LARGEST ULTRA MEGA MALL - <span>ScamX Store</span></div>
         <div>Hotline: <b>01765314487</b></div>
@@ -485,13 +471,8 @@
             </div>
             
             <div class="search-box">
-                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="পোশাক, হোম ডেকোর ও খেলনাসহ ৫০০টি প্রোডাক্ট থেকে খুঁজুন...">
+                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="ক্যাটাগরি বা প্রোডাক্টের নাম দিয়ে খুঁজুন...">
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-
-            <div class="cart-icon-btn">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <div class="cart-badge" id="cartCount">0</div>
             </div>
         </div>
     </header>
@@ -501,152 +482,147 @@
         <div class="hero-banner">
             <div class="owner-badge"><i class="fa-solid fa-crown"></i> MR SERAJ | FOUNDER & CEO</div>
             <h1>ScamX Premium Fashion & Shopping Mall</h1>
-            <p>ছেলে ও মেয়েদের পোশাক, হোম ডেকোরেশন, বাচ্চাদের খেলনাসহ ৫০০টি ভিন্ন ও প্রিমিয়াম প্রোডাক্ট পান ক্যাশ অন ডেলিভারিতে!</p>
-        </div>
-    </div>
-
-    <div class="hero-section">
-        <!-- Flash Sale Bar -->
-        <div class="flash-sale-bar">
-            <div class="flash-title">
-                <i class="fa-solid fa-fire-flame-curved"></i> FLASH SALE - LIVE NOW
-            </div>
-            <div class="timer-box">
-                <span>Offer Closes In:</span>
-                <div class="timer-unit" id="hrs">08</div>:
-                <div class="timer-unit" id="min">14</div>:
-                <div class="timer-unit" id="sec">45</div>
-            </div>
+            <p>নিচের ক্যাটাগরিগুলোতে চাপ দিয়ে আপনার পছন্দের সেকশনটি সরাসরি সিলেক্ট করুন!</p>
         </div>
 
-        <!-- 500 Unique Products Container -->
+        <!-- Category Grid Section (Screenshot Style) -->
+        <div class="sec-header">
+            <div class="sec-title"><i class="fa-solid fa-layer-group"></i> Featured Categories</div>
+        </div>
+
+        <div class="cat-grid">
+            <div class="cat-card-box" onclick="filterCategory('smartwatch')">
+                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500" alt="Smart Watch">
+                <div class="cat-card-title">Smart Watch</div>
+            </div>
+            <div class="cat-card-box" onclick="filterCategory('headphones')">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Headphones">
+                <div class="cat-card-title">Headphones</div>
+            </div>
+            <div class="cat-card-box" onclick="filterCategory('earbuds')">
+                <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500" alt="Earbuds">
+                <div class="cat-card-title">Earbuds</div>
+            </div>
+            <div class="cat-card-box" onclick="filterCategory('gadgets')">
+                <img src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500" alt="Smart Gadgets">
+                <div class="cat-card-title">Smart Gadgets</div>
+            </div>
+            <div class="cat-card-box" onclick="filterCategory('homedecor')">
+                <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500" alt="Home Decor">
+                <div class="cat-card-title">Home Decor</div>
+            </div>
+            <div class="cat-card-box" onclick="filterCategory('gaming')">
+                <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=500" alt="Gamers Special">
+                <div class="cat-card-title">Gamers Special</div>
+            </div>
+            <div class="cat-card-box" onclick="filterCategory('mens')">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500" alt="Men's Fashion">
+                <div class="cat-card-title">Men's Fashion</div>
+            </div>
+            <div class="cat-card-box" onclick="filterCategory('womens')">
+                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=500" alt="Women's Wear">
+                <div class="cat-card-title">Women's Wear</div>
+            </div>
+        </div>
+
+        <!-- Filter Chips Bar -->
+        <div class="sec-header" id="productListSec">
+            <div class="sec-title"><i class="fa-solid fa-bag-shopping"></i> Product Collection</div>
+        </div>
+
+        <div class="filter-chips">
+            <div class="filter-chip active" onclick="filterCategory('all', this)">All Products</div>
+            <div class="filter-chip" onclick="filterCategory('smartwatch', this)">Smart Watch</div>
+            <div class="filter-chip" onclick="filterCategory('earbuds', this)">Earbuds</div>
+            <div class="filter-chip" onclick="filterCategory('headphones', this)">Headphones</div>
+            <div class="filter-chip" onclick="filterCategory('gadgets', this)">Gadgets</div>
+            <div class="filter-chip" onclick="filterCategory('homedecor', this)">Home Decor</div>
+            <div class="filter-chip" onclick="filterCategory('gaming', this)">Gaming</div>
+            <div class="filter-chip" onclick="filterCategory('mens', this)">Men's Wear</div>
+            <div class="filter-chip" onclick="filterCategory('womens', this)">Women's Wear</div>
+            <div class="filter-chip" onclick="filterCategory('toys', this)">Kids Toys</div>
+        </div>
+
+        <!-- Products Container -->
         <div class="products-grid" id="productGrid">
-            <!-- JavaScript Unique Catalog Engine -->
+            <!-- Dynamic JavaScript Catalog -->
         </div>
     </div>
 
-    <!-- Features -->
-    <div class="features-bar">
-        <div class="feature-item">
-            <i class="fa-solid fa-truck-fast"></i>
-            <div>
-                <h4>ক্যাশ অন ডেলিভারি</h4>
-                <p>সমগ্র বাংলাদেশে হোম ডেলিভারি</p>
-            </div>
+    <!-- Bottom Sticky Navigation Bar -->
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="scrollToSec('productListSec')">
+            <i class="fa-solid fa-list-ul"></i>
+            <span>Category</span>
         </div>
-        <div class="feature-item">
-            <i class="fa-solid fa-shield-halved"></i>
-            <div>
-                <h4>১০০% অরিজিনাল</h4>
-                <p>সেরা কোয়ালিটি গ্যারান্টি</p>
-            </div>
+        <div class="nav-item" onclick="openWhatsAppDirect()">
+            <i class="fa-brands fa-whatsapp" style="color: var(--success-green);"></i>
+            <span>Whatsapp</span>
         </div>
-        <div class="feature-item">
-            <i class="fa-solid fa-rotate-left"></i>
-            <div>
-                <h4>৭ দিনের রিপ্লেসমেন্ট</h4>
-                <p>সহজ রিটার্ন পলিসি</p>
-            </div>
+        <div class="nav-item-home" onclick="filterCategory('all')">
+            <i class="fa-solid fa-house"></i>
         </div>
-        <div class="feature-item">
-            <i class="fa-solid fa-headset"></i>
-            <div>
-                <h4>২৪/৭ সাপোর্ট</h4>
-                <p>সরাসরি কল বা হোয়াটসঅ্যাপ</p>
-            </div>
+        <div class="nav-item" onclick="scrollToSec('productListSec')">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Cart (<b id="cartCount">0</b>)</span>
+        </div>
+        <div class="nav-item" onclick="openWhatsAppDirect()">
+            <i class="fa-solid fa-user"></i>
+            <span>Contact</span>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3 style="color: var(--neon-orange);">ScamX Store</h3>
-                <p>Owned & Operated by <b>MR SERAJ</b>. Premier Destination for Fashion, Toys, Home Decor & Lifestyle in Bangladesh.</p>
-                <p style="margin-top: 10px; color: #fff;"><i class="fa-solid fa-phone"></i> Helpline: 01765314487</p>
-            </div>
-            <div class="footer-col">
-                <h3>Customer Care</h3>
-                <li>Help & FAQ</li>
-                <li>Order Tracking</li>
-                <li>Returns Policy</li>
-                <li>Privacy Policy</li>
-            </div>
-            <div class="footer-col">
-                <h3>Shopping Categories</h3>
-                <li>Men's Wear | Women's Fashion</li>
-                <li>Home Decor | Lighting & Lamps</li>
-                <li>Kids Toys | Lifestyle & Accessories</li>
-            </div>
-            <div class="footer-col">
-                <h3>Trust & Security</h3>
-                <p><i class="fa-solid fa-circle-check" style="color: var(--success-green);"></i> Verified E-Commerce Business</p>
-                <p><i class="fa-solid fa-lock" style="color: var(--platinum-gold);"></i> Encrypted Checkout</p>
-            </div>
-        </div>
         <div class="copyright-text">
-            © 2026 ScamX Store. Designed & Developed for <b>MR SERAJ</b>. All Rights Reserved.
+            © 2026 ScamX Store. Managed & Owned by <b>MR SERAJ</b>. All Rights Reserved.
         </div>
     </footer>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/8801765314487" class="floating-wa" target="_blank">
-        <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> WhatsApp Order
-    </a>
-
-    <!-- 500 Unique Mixed Catalog Engine -->
+    <!-- JavaScript Filter Engine -->
     <script>
         const catalogTemplates = [
-            // ছেলেদের পোশাক
-            { cat: "MEN'S FASHION", name: "Premium Slim-Fit Casual Cotton Shirt", basePrice: 950, baseOld: 1450, img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400" },
-            { cat: "MEN'S FASHION", name: "Oversized Heavyweight Printed T-Shirt", basePrice: 650, baseOld: 990, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400" },
-            { cat: "MEN'S FASHION", name: "Stretchable Denim Jeans Pants", basePrice: 1250, baseOld: 1850, img: "https://images.unsplash.com/photo-1542272604-780c36856842?w=400" },
-            { cat: "MEN'S FASHION", name: "Genuine Leather Formal Belt", basePrice: 550, baseOld: 850, img: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=400" },
-            { cat: "MEN'S FASHION", name: "Stylish Waterproof Quartz Wristwatch", basePrice: 1450, baseOld: 2200, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-
-            // মেয়েদের পোশাক ও ব্যাগ
-            { cat: "WOMEN'S FASHION", name: "Exclusive Digital Printed Cotton 3-Piece", basePrice: 1850, baseOld: 2600, img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400" },
-            { cat: "WOMEN'S FASHION", name: "Stylish Designer Handbag for Women", basePrice: 1350, baseOld: 1950, img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400" },
-            { cat: "WOMEN'S FASHION", name: "Designer Linen Kurti Set", basePrice: 1150, baseOld: 1650, img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400" },
-            { cat: "WOMEN'S FASHION", name: "Multi-Layer Velvet Jewelry Box", basePrice: 850, baseOld: 1250, img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400" },
-
-            // হোম ও রুম ডেকোরেশন
-            { cat: "HOME DECOR", name: "3D Crystal Ball LED Night Lamp", basePrice: 750, baseOld: 1150, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400" },
-            { cat: "HOME DECOR", name: "Galaxy Star Projector Ambient Light", basePrice: 1450, baseOld: 2100, img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400" },
-            { cat: "HOME DECOR", name: "Ergonomic Memory Foam Neck Pillow", basePrice: 890, baseOld: 1300, img: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400" },
-            { cat: "HOME DECOR", name: "Nordic Ceramic Flower Vase", basePrice: 650, baseOld: 980, img: "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?w=400" },
-            { cat: "HOME DECOR", name: "Essential Oil Aroma Diffuser & Humidifier", basePrice: 1250, baseOld: 1750, img: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400" },
-
-            // বাচ্চাদের খেলনা
-            { cat: "KIDS TOYS", name: "High-Speed Remote Control RC Stunt Car", basePrice: 1350, baseOld: 1950, img: "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=400" },
-            { cat: "KIDS TOYS", name: "Cute Teddy Bear Soft Plush Toy", basePrice: 650, baseOld: 950, img: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=400" },
-            { cat: "KIDS TOYS", name: "Educational Musical Steering Wheel Toy", basePrice: 850, baseOld: 1200, img: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400" },
-
-            // স্মার্ট গ্যাজেট ও এক্সেসরিজ
-            { cat: "SMART GADGETS", name: "Stainless Steel Smart Temperature Bottle", basePrice: 650, baseOld: 990, img: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400" },
-            { cat: "SMART GADGETS", name: "Ultra-Lightweight Anti-Blue Ray Glasses", basePrice: 450, baseOld: 750, img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400" }
+            // SmartWatch
+            { key: "smartwatch", cat: "SMART WATCH", name: "Ultra Smartwatch Series Pro", basePrice: 1650, baseOld: 2200, img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" },
+            // Earbuds
+            { key: "earbuds", cat: "EARBUDS", name: "ANC Active Noise Wireless Earbuds", basePrice: 1450, baseOld: 1950, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" },
+            // Headphones
+            { key: "headphones", cat: "HEADPHONES", name: "Pro Studio Wireless Gaming Headphone", basePrice: 2150, baseOld: 2800, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
+            // Gadgets
+            { key: "gadgets", cat: "SMART GADGETS", name: "Fast Charging PowerBank 20000mAh", basePrice: 2250, baseOld: 2900, img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400" },
+            // Home Decor
+            { key: "homedecor", cat: "HOME DECOR", name: "3D Crystal Ball LED Night Lamp", basePrice: 750, baseOld: 1150, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400" },
+            // Gaming
+            { key: "gaming", cat: "GAMERS SPECIAL", name: "RGB Mechanical Gaming Keyboard", basePrice: 2650, baseOld: 3400, img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400" },
+            // Men's
+            { key: "mens", cat: "MEN'S FASHION", name: "Premium Slim-Fit Casual Cotton Shirt", basePrice: 950, baseOld: 1450, img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400" },
+            // Women's
+            { key: "womens", cat: "WOMEN'S WEAR", name: "Exclusive Digital Printed Cotton 3-Piece", basePrice: 1850, baseOld: 2600, img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400" },
+            // Toys
+            { key: "toys", cat: "KIDS TOYS", name: "High-Speed Remote Control RC Stunt Car", basePrice: 1350, baseOld: 1950, img: "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=400" }
         ];
 
         const styleVariants = [
             "Royal Edition", "Luxury Collection", "Signature Series", "Urban Style", "Classic Premium", 
-            "Trendsetter", "Limited Edition", "Modern Fit", "Elite Quality", "Imperial Choice"
+            "Trendsetter", "Limited Edition", "Modern Fit", "Elite Choice", "Imperial Gold"
         ];
 
         let cartCount = 0;
         const grid = document.getElementById('productGrid');
 
-        // 500 Completely Unique Product Generator
-        for(let i = 1; i <= 500; i++) {
+        // Generating Unique Categorized Products
+        for(let i = 1; i <= 300; i++) {
             let item = catalogTemplates[i % catalogTemplates.length];
             let variant = styleVariants[i % styleVariants.length];
             
-            let uniqueTitle = `${item.name} - ${variant} #${100 + i}`;
-            let price = item.basePrice + ((i * 12) % 600);
-            let oldPrice = price + 350 + ((i * 8) % 300);
+            let uniqueTitle = `${item.name} - ${variant}`;
+            let price = item.basePrice + ((i * 15) % 500);
+            let oldPrice = price + 400 + ((i * 5) % 200);
             let discount = Math.round(((oldPrice - price) / oldPrice) * 100);
 
             let card = document.createElement('div');
             card.className = 'product-card';
+            card.setAttribute('data-cat', item.key);
             card.setAttribute('data-name', uniqueTitle.toLowerCase());
 
             card.innerHTML = `
@@ -669,13 +645,42 @@
             grid.appendChild(card);
         }
 
+        // Filter Category Function
+        function filterCategory(catKey, element) {
+            if(element) {
+                let chips = document.getElementsByClassName('filter-chip');
+                for(let c of chips) c.classList.remove('active');
+                element.classList.add('active');
+            }
+
+            let cards = document.getElementsByClassName('product-card');
+            for (let card of cards) {
+                let cardCat = card.getAttribute('data-cat');
+                if (catKey === 'all' || cardCat === catKey) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+
+            scrollToSec('productListSec');
+        }
+
         // WhatsApp Direct Order Function
         function buyWhatsApp(pName, price) {
             cartCount++;
             document.getElementById('cartCount').innerText = cartCount;
-            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please confirm my order!`;
+            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please process my order!`;
             let url = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
+        }
+
+        function openWhatsAppDirect() {
+            window.open('https://wa.me/8801765314487', '_blank');
+        }
+
+        function scrollToSec(secId) {
+            document.getElementById(secId).scrollIntoView({ behavior: 'smooth' });
         }
 
         // Search Filter Engine
@@ -683,29 +688,15 @@
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('product-card');
 
-            for (let i = 0; i < cards.length; i++) {
-                let name = cards[i].getAttribute('data-name');
+            for (let card of cards) {
+                let name = card.getAttribute('data-name');
                 if (name.includes(input)) {
-                    cards[i].style.display = "flex";
+                    card.style.display = "flex";
                 } else {
-                    cards[i].style.display = "none";
+                    card.style.display = "none";
                 }
             }
         }
-
-        // Timer Countdown
-        setInterval(() => {
-            let s = document.getElementById('sec');
-            let m = document.getElementById('min');
-            let secVal = parseInt(s.innerText);
-            if(secVal > 0) {
-                s.innerText = (secVal - 1 < 10 ? '0' : '') + (secVal - 1);
-            } else {
-                s.innerText = "59";
-                let minVal = parseInt(m.innerText);
-                m.innerText = (minVal - 1 < 10 ? '0' : '') + (minVal - 1);
-            }
-        }, 1000);
     </script>
 </body>
 </html>
