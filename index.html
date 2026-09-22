@@ -3,187 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScamX Store - Premium Tech & Gadgets</title>
-    <!-- FontAwesome Icons -->
+    <title>ScamX Store | Largest Tech & Gadget Mall in Bangladesh</title>
+    <!-- FontAwesome Icons & Google Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-dark: #0b1329;
-            --card-dark: #131e3a;
-            --accent-blue: #2563eb;
-            --btn-blue: #1d4ed8;
-            --accent-green: #10b981;
-            --text-main: #ffffff;
-            --text-sub: #94a3b8;
-            --border-color: #1e293b;
-            --badge-red: #ef4444;
+            --primary: #f57224; /* Daraz Orange Theme */
+            --primary-dark: #d65a11;
+            --secondary: #2e2e54;
+            --bg-body: #f4f4f6;
+            --card-bg: #ffffff;
+            --text-dark: #212121;
+            --text-gray: #757575;
+            --badge-red: #ff3b30;
+            --success-green: #25d366;
+            --shadow: 0 4px 15px rgba(0,0,0,0.06);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            padding-bottom: 30px;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            padding-bottom: 70px;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; }
 
-        /* Header */
-        header {
-            background: #ffffff;
-            padding: 12px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        /* Top Announcement Bar */
+        .top-bar {
+            background: var(--secondary);
+            color: #fff;
+            font-size: 11px;
+            padding: 6px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .top-bar span { font-weight: 600; color: #ffb703; }
+
+        /* Header / Navbar */
+        header {
+            background: #ffffff;
+            padding: 12px 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
         }
 
         .logo {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 800;
-            color: #0f172a;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo i {
-            color: var(--accent-blue);
-        }
-
-        .btn-call {
-            background: var(--accent-blue);
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
+            color: var(--primary);
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        /* Hero Banner */
-        .hero-banner {
+        .logo span {
+            color: var(--secondary);
+            font-size: 10px;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border: 2px solid var(--primary);
+            border-radius: 25px;
+            outline: none;
+            font-size: 13px;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-icon-btn {
+            position: relative;
+            font-size: 20px;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Mega Banner */
+        .hero-section {
+            max-width: 1200px;
             margin: 15px auto;
-            max-width: 95%;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border-radius: 20px;
-            padding: 35px 20px;
+            padding: 0 15px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #2e2e54 0%, #111126 100%);
+            border-radius: 16px;
+            padding: 30px 20px;
+            color: white;
             text-align: center;
-            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .hero-banner h1 {
-            font-size: 22px;
+            font-size: 26px;
             font-weight: 800;
             margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            color: #ffffff;
         }
 
         .hero-banner p {
             font-size: 13px;
-            color: var(--text-sub);
+            color: #cbd5e1;
             margin-bottom: 20px;
         }
 
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background: var(--accent-blue);
-            color: white;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.08);
-            color: white;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Section Layout */
-        .section-container {
-            max-width: 1100px;
-            margin: 25px auto;
-            padding: 0 15px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            font-size: 17px;
+        .owner-tag {
+            display: inline-block;
+            background: rgba(245, 114, 36, 0.2);
+            border: 1px solid var(--primary);
+            color: #ffb703;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
             font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Flash Sale Header & Timer */
+        .flash-sale-bar {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+        }
+
+        .flash-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .see-all {
-            color: var(--accent-blue);
-            font-size: 13px;
-            font-weight: 600;
+        .timer-box {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            font-weight: 700;
         }
 
-        /* Brands Grid */
-        .brands-grid {
+        .timer-unit {
+            background: var(--secondary);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* Categories Bar */
+        .category-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
-        @media (min-width: 640px) {
-            .brands-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        @media(min-width: 768px) {
+            .category-grid { grid-template-columns: repeat(8, 1fr); }
         }
 
-        .brand-card {
+        .cat-card {
             background: #ffffff;
-            color: #0f172a;
-            padding: 14px;
             border-radius: 12px;
+            padding: 12px 8px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .cat-card:hover { transform: translateY(-3px); }
+
+        .cat-card i {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 6px;
         }
 
-        .brand-card h3 {
-            font-size: 15px;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-        }
-
-        .brand-card p {
+        .cat-card span {
+            display: block;
             font-size: 11px;
-            color: #64748b;
-            margin-top: 2px;
+            font-weight: 600;
+            color: var(--text-dark);
         }
 
         /* Products Grid */
@@ -191,1075 +265,456 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            margin-top: 15px;
         }
 
-        @media (min-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+        @media (min-width: 640px) {
+            .products-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (min-width: 992px) {
+            .products-grid { grid-template-columns: repeat(5, 1fr); }
         }
 
         .product-card {
-            background: #ffffff;
-            color: #0f172a;
-            border-radius: 14px;
-            padding: 12px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 10px;
             position: relative;
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: all 0.2s;
         }
 
-        .badge {
+        .product-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .badge-discount {
             position: absolute;
-            top: 15px;
-            left: 15px;
+            top: 10px;
+            left: 10px;
             background: var(--badge-red);
             color: white;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 3px 8px;
-            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
             z-index: 2;
         }
 
         .product-img-box {
             width: 100%;
-            height: 140px;
+            height: 130px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             background: #f8fafc;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .product-img-box img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 90%;
+            max-height: 90%;
             object-fit: contain;
         }
 
-        .product-title {
-            font-size: 13px;
+        .product-brand {
+            font-size: 10px;
             font-weight: 700;
-            line-height: 1.3;
-            height: 34px;
-            overflow: hidden;
-            margin-bottom: 8px;
-            color: #1e293b;
+            color: var(--primary);
+            text-transform: uppercase;
         }
 
-        .price-box {
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            background: #f8fafc;
-        }
-
-        .price-item {
-            text-align: center;
-        }
-
-        .price-label {
-            font-size: 9px;
-            color: #64748b;
+        .product-title {
+            font-size: 12px;
             font-weight: 600;
+            line-height: 1.3;
+            height: 32px;
+            overflow: hidden;
+            margin: 4px 0 6px;
+            color: var(--text-dark);
         }
 
-        .price-val {
-            font-size: 13px;
+        .rating-box {
+            font-size: 10px;
+            color: #ffb703;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .rating-box span { color: var(--text-gray); margin-left: 4px; }
+
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .current-price {
+            font-size: 15px;
             font-weight: 800;
-            color: var(--btn-blue);
+            color: var(--primary);
         }
 
         .old-price {
             font-size: 11px;
             text-decoration: line-through;
-            color: #94a3b8;
+            color: var(--text-gray);
         }
 
-        .card-actions {
+        .btn-order {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: background 0.2s;
+        }
+
+        .btn-order:hover { background: var(--primary-dark); }
+
+        /* Trust Feature Badges */
+        .features-bar {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 15px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        @media(min-width: 768px) {
+            .features-bar { grid-template-columns: repeat(4, 1fr); }
         }
 
-        .btn-order-sm {
-            background: var(--btn-blue);
-            color: white;
-            border: none;
-            padding: 8px 0;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
+        .feature-item {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow);
         }
 
-        .btn-details-sm {
-            background: #f1f5f9;
-            color: #334155;
-            border: none;
-            padding: 8px 0;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
+        .feature-item i {
+            font-size: 24px;
+            color: var(--primary);
         }
+
+        .feature-item h4 { font-size: 13px; font-weight: 700; }
+        .feature-item p { font-size: 10px; color: var(--text-gray); }
 
         /* Footer */
         footer {
-            background: #060c1a;
-            padding: 35px 20px 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-main);
+            background: #1e1e2f;
+            color: #ffffff;
+            padding: 40px 20px 20px;
+            margin-top: 50px;
         }
 
-        .footer-sec {
-            margin-bottom: 25px;
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 25px;
         }
 
-        .footer-sec-title {
-            font-size: 15px;
+        @media(min-width: 768px) {
+            .footer-container { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
             font-weight: 700;
             margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #f1f5f9;
+            color: var(--primary);
         }
 
-        .footer-links {
+        .footer-col p, .footer-col li {
+            font-size: 12px;
+            color: #b0b0d0;
+            line-height: 1.8;
             list-style: none;
         }
 
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-
-        .footer-links a {
-            color: var(--text-sub);
-            font-size: 13px;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-blue);
-        }
-
-        .policy-btn {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            color: var(--text-sub);
-            padding: 10px 14px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-sub);
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .trust-item i {
-            color: var(--accent-green);
-        }
-
-        .btn-wa-footer {
-            background: var(--accent-green);
-            color: white;
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 14px;
-            margin-top: 15px;
-        }
-
-        .copyright-bar {
+        .copyright-text {
             text-align: center;
-            color: var(--text-sub);
             font-size: 12px;
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid var(--border-color);
+            color: #757575;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #2e2e45;
         }
 
-        /* Floating Cart Icon */
-        .floating-cart {
+        /* Bottom Sticky WhatsApp Floating Button */
+        .floating-wa {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent-blue);
+            bottom: 15px;
+            right: 15px;
+            background: var(--success-green);
             color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
-            cursor: pointer;
-            z-index: 999;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            background: var(--badge-red);
-            color: white;
-            font-size: 10px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
         }
     </style>
 </head>
 <body>
 
+    <!-- Top Announcement -->
+    <div class="top-bar">
+        <div>⚡ Welcome to Bangladesh's Largest Tech Mall - <span>ScamX Store</span></div>
+        <div>Hotline: <b>01765314487</b></div>
+    </div>
+
     <!-- Header -->
     <header>
-        <div class="logo">
-            <i class="fa-solid fa-bolt"></i> ScamX Store
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-bag-shopping"></i> ScamX <span>MALL</span>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="১০০+ গ্যাজেট ও অ্যাকসেসরিজ থেকে খুঁজুন...">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div class="header-actions">
+                <div class="cart-icon-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="cart-badge" id="cartCount">0</div>
+                </div>
+            </div>
         </div>
-        <a href="tel:01765314487" class="btn-call">
-            <i class="fa-solid fa-phone"></i> Call Now
-        </a>
     </header>
 
-    <!-- Hero Banner -->
-    <div class="hero-banner">
-        <h1>Premium Gadgets & Tech Accessories</h1>
-        <p>সেরা দামে আপনার পছন্দের Tech Product অর্ডার করুন সরাসরি WhatsApp-এ!</p>
-        <div class="hero-btns">
-            <a href="#products" class="btn-primary">অর্ডার করুন</a>
-            <a href="#products" class="btn-secondary">View Offers</a>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-banner">
+            <div class="owner-tag"><i class="fa-solid fa-crown"></i> FOUNDER & CEO: MR SERAJ</div>
+            <h1>ScamX Premium Tech Mall</h1>
+            <p>১০০% অরিজিনাল ব্র্যান্ডেড গ্যাজেট ও ইলেকট্রনিক্স পান দেশের সর্বনিম্ন অফার প্রাইসে!</p>
         </div>
     </div>
 
-    <!-- Authorized Brands -->
-    <div class="section-container">
-        <div class="section-header">
-            <div class="section-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: #60a5fa;"></i> Top Authorized Brands</div>
-            <a href="#" class="see-all">All Brands &rarr;</a>
+    <div class="hero-section">
+        <!-- Categories -->
+        <div class="category-grid">
+            <div class="cat-card"><i class="fa-solid fa-clock"></i><span>Smartwatch</span></div>
+            <div class="cat-card"><i class="fa-solid fa-headphones"></i><span>Earbuds</span></div>
+            <div class="cat-card"><i class="fa-solid fa-bolt"></i><span>Power Bank</span></div>
+            <div class="cat-card"><i class="fa-solid fa-keyboard"></i><span>Keyboard</span></div>
+            <div class="cat-card"><i class="fa-solid fa-gamepad"></i><span>Gaming</span></div>
+            <div class="cat-card"><i class="fa-solid fa-plug"></i><span>Chargers</span></div>
+            <div class="cat-card"><i class="fa-solid fa-camera"></i><span>Camera/Mic</span></div>
+            <div class="cat-card"><i class="fa-solid fa-mobile-screen"></i><span>Accessories</span></div>
         </div>
-        <div class="brands-grid">
-            <div class="brand-card">
-                <h3>SAMSUNG</h3>
-                <p>Original Products</p>
+
+        <!-- Flash Sale Bar -->
+        <div class="flash-sale-bar">
+            <div class="flash-title">
+                <i class="fa-solid fa-bolt-lightning"></i> FLASH SALE
             </div>
-            <div class="brand-card">
-                <h3>APPLE</h3>
-                <p>Authorized Gear</p>
+            <div class="timer-box">
+                <span>Ends In:</span>
+                <div class="timer-unit" id="hrs">05</div>:
+                <div class="timer-unit" id="min">42</div>:
+                <div class="timer-unit" id="sec">19</div>
             </div>
-            <div class="brand-card">
-                <h3>XIAOMI</h3>
-                <p>Smart Lifestyle</p>
+        </div>
+
+        <!-- 100+ Products Container -->
+        <div class="products-grid" id="productGrid">
+            <!-- JavaScript-এর মাধ্যমে ১০০টি পন্য স্বয়ংক্রিয়ভাবে জেনারেট হয়ে লোড হবে -->
+        </div>
+    </div>
+
+    <!-- Trust Features -->
+    <div class="features-bar">
+        <div class="feature-item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div>
+                <h4>ক্যাশ অন ডেলিভারি</h4>
+                <p>সমগ্র বাংলাদেশে হোম ডেলিভারি</p>
             </div>
-            <div class="brand-card">
-                <h3>ANKER</h3>
-                <p>Fast Charging</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+                <h4>১০০% অরিজিনাল</h4>
+                <p>অরিজিনাল প্রোডাক্ট গ্যারান্টি</p>
             </div>
-            <div class="brand-card">
-                <h3>REALME</h3>
-                <p>Dare to Leap</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-rotate-left"></i>
+            <div>
+                <h4>৭ দিনের রিপ্লেসমেন্ট</h4>
+                <p>সহজ রিটার্ন পলিসি</p>
             </div>
-            <div class="brand-card">
-                <h3>BASEUS</h3>
-                <p>Premium Accessories</p>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-headset"></i>
+            <div>
+                <h4>২৪/৭ কাস্টমার সাপোর্ট</h4>
+                <p>সরাসরি কল বা হোয়াটসঅ্যাপ</p>
             </div>
         </div>
     </div>
 
-    <!-- Products Section -->
-    <div class="section-container" id="products">
-        <div class="section-title" style="margin-bottom: 4px;">আপনার পছন্দের পণ্য সিলেক্ট করুন</div>
-        <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 15px;">Explore our exclusive deals & premium tech collection</p>
-
-        <div class="products-grid">
-
-            <!-- Product 1 -->
-            <div class="product-card">
-                <span class="badge">HOT DEAL</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=400&q=80" alt="Smartwatch Ultra">
-                </div>
-                <div class="product-title">T800 Ultra Smartwatch</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১২৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳১৬৫০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('T800 Ultra Smartwatch', 1250)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <span class="badge">BEST SELLER</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&q=80" alt="Wireless Earbuds">
-                </div>
-                <div class="product-title">AirPods Pro 2nd Gen Clone</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১৮৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২৪০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('AirPods Pro 2nd Gen Clone', 1850)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <span class="badge">POPULAR</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1609592424074-123cb2053648?auto=format&fit=crop&w=400&q=80" alt="Neckband">
-                </div>
-                <div class="product-title">OnePlus Bullets Wireless Z2</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳২১৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২৬০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('OnePlus Bullets Wireless Z2', 2150)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <span class="badge">SAVE 20%</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&w=400&q=80" alt="Power Bank">
-                </div>
-                <div class="product-title">Anker 20,000mAh Power Bank</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৩৪৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৪২০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Anker 20000mAh Power Bank', 3450)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product-card">
-                <span class="badge">HOT DEAL</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=400&q=80" alt="Gaming Mouse">
-                </div>
-                <div class="product-title">Logitech G102 Gaming Mouse</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১৯৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২৪০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Logitech G102 Gaming Mouse', 1950)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="product-card">
-                <span class="badge">NEW</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=400&q=80" alt="Mechanical Keyboard">
-                </div>
-                <div class="product-title">MageGee RGB Mechanical Keyboard</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳২৮৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৩৫০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('MageGee Mechanical Keyboard', 2850)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 7 -->
-            <div class="product-card">
-                <span class="badge">HOT</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=400&q=80" alt="Bluetooth Speaker">
-                </div>
-                <div class="product-title">JBL GO 3 Portable Speaker</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৩৯৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৪৮০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('JBL GO 3 Speaker', 3950)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 8 -->
-            <div class="product-card">
-                <span class="badge">TRENDING</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="Gaming Headset">
-                </div>
-                <div class="product-title">Fantech HG11 Gaming Headset</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳২৩৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২৯০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Fantech HG11 Headset', 2350)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 9 -->
-            <div class="product-card">
-                <span class="badge">SAVE 15%</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=400&q=80" alt="Laptop Stand">
-                </div>
-                <div class="product-title">Aluminum Adjustable Laptop Stand</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৯৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳১৩০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Laptop Stand', 950)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 10 -->
-            <div class="product-card">
-                <span class="badge">ESSENTIAL</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80" alt="Fast Charger">
-                </div>
-                <div class="product-title">Baseus 65W GaN Fast Charger</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳২৭৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৩৪০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Baseus 65W Charger', 2750)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 11 -->
-            <div class="product-card">
-                <span class="badge">HOT</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=400&q=80" alt="Ring Light">
-                </div>
-                <div class="product-title">10 Inch RGB Ring Light with Tripod</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১৪৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳১৯৫০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('RGB Ring Light', 1450)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 12 -->
-            <div class="product-card">
-                <span class="badge">BEST SELLER</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=400&q=80" alt="Condenser Mic">
-                </div>
-                <div class="product-title">Fifine K669B USB Condenser Mic</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৩৪৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৪২০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Fifine USB Mic', 3450)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 13 -->
-            <div class="product-card">
-                <span class="badge">POPULAR</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=400&q=80" alt="Wireless Gaming Earbuds">
-                </div>
-                <div class="product-title">Lenovo GM2 Pro Gaming Earbuds</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১১৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳১৫৫০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Lenovo GM2 Pro Earbuds', 1150)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 14 -->
-            <div class="product-card">
-                <span class="badge">NEW</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1616410011236-7a42121dd981?auto=format&fit=crop&w=400&q=80" alt="Smart Fitness Band">
-                </div>
-                <div class="product-title">Xiaomi Smart Band 8</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৪২৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৫০০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Xiaomi Smart Band 8', 4250)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 15 -->
-            <div class="product-card">
-                <span class="badge">HOT DEAL</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1626218174358-7769486c4b79?auto=format&fit=crop&w=400&q=80" alt="Wireless Charger">
-                </div>
-                <div class="product-title">3-in-1 Magnetic Wireless Charger</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳২৩৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২৯০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('3in1 Wireless Charger', 2350)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 16 -->
-            <div class="product-card">
-                <span class="badge">SAVE 25%</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1563298723-dcfebaa392e3?auto=format&fit=crop&w=400&q=80" alt="USB Hub">
-                </div>
-                <div class="product-title">Baseus 7-in-1 Type-C USB Hub</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৩১৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৩৯০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Baseus USB Hub', 3150)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 17 -->
-            <div class="product-card">
-                <span class="badge">HOT</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80" alt="Reading Light">
-                </div>
-                <div class="product-title">Baseus Rechargeable Desk Lamp</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১৬৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২১০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Baseus Desk Lamp', 1650)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 18 -->
-            <div class="product-card">
-                <span class="badge">POPULAR</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Keyboard Sleeve">
-                </div>
-                <div class="product-title">Waterproof Laptop Sleeve Bag</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৮৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳১২০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Laptop Sleeve Bag', 850)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 19 -->
-            <div class="product-card">
-                <span class="badge">NEW</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1616410011236-7a42121dd981?auto=format&fit=crop&w=400&q=80" alt="Mobile Cooler">
-                </div>
-                <div class="product-title">Memo FL05 RGB Phone Cooler</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১২৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳১৬৫০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Memo Phone Cooler', 1250)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 20 -->
-            <div class="product-card">
-                <span class="badge">BEST SELLER</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="Haylou Watch">
-                </div>
-                <div class="product-title">Haylou Solar Plus RT3 Smartwatch</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৪৩৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৫২০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Haylou Solar Plus RT3', 4350)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 21 -->
-            <div class="product-card">
-                <span class="badge">HOT DEAL</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&q=80" alt="Realme Buds">
-                </div>
-                <div class="product-title">Realme Buds T100 TWS</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳২৪৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২৯০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Realme Buds T100', 2450)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 22 -->
-            <div class="product-card">
-                <span class="badge">TRENDING</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=400&q=80" alt="Gaming Mousepad">
-                </div>
-                <div class="product-title">RGB XXL Gaming Mousepad (80x30cm)</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৯৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳১৩৫০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('RGB XXL Mousepad', 950)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 23 -->
-            <div class="product-card">
-                <span class="badge">HOT</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80" alt="Car Charger">
-                </div>
-                <div class="product-title">Baseus 30W Dual USB Car Charger</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৭৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳১০৫০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Baseus Car Charger', 750)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 24 -->
-            <div class="product-card">
-                <span class="badge">SAVE 20%</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=400&q=80" alt="Soundbar">
-                </div>
-                <div class="product-title">Redragon GS520 Anvil RGB Speaker</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳২৩৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২৯০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Redragon Speaker', 2350)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 25 -->
-            <div class="product-card">
-                <span class="badge">NEW</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&w=400&q=80" alt="Magsafe Powerbank">
-                </div>
-                <div class="product-title">MagSafe Wireless Power Bank 10,000mAh</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳২৮৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৩৫০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('MagSafe Power Bank', 2850)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 26 -->
-            <div class="product-card">
-                <span class="badge">POPULAR</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=400&q=80" alt="Webcam">
-                </div>
-                <div class="product-title">1080p Full HD Webcam with Mic</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১৬৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২২০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('1080p Full HD Webcam', 1650)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 27 -->
-            <div class="product-card">
-                <span class="badge">HOT DEAL</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="Bluetooth Headphone">
-                </div>
-                <div class="product-title">Havit H2015d Gaming Headphone</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১৯৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳২৫০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Havit Gaming Headphone', 1950)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 28 -->
-            <div class="product-card">
-                <span class="badge">ESSENTIAL</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80" alt="OTG Adapter">
-                </div>
-                <div class="product-title">Baseus Metallic Type-C OTG Adapter</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৪৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৬৫০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Baseus OTG Adapter', 450)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 29 -->
-            <div class="product-card">
-                <span class="badge">HOT</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=400&q=80" alt="Gimbal Stabilizer">
-                </div>
-                <div class="product-title">3-Axis Handheld Smartphone Gimbal</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳৭৮৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳৯৫০০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('Smartphone Gimbal', 7850)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-            <!-- Product 30 -->
-            <div class="product-card">
-                <span class="badge">BEST SELLER</span>
-                <div class="product-img-box">
-                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=400&q=80" alt="K9 Wireless Mic">
-                </div>
-                <div class="product-title">K9 Dual Wireless Microphone</div>
-                <div class="price-box">
-                    <div class="price-item">
-                        <div class="price-label">Offer Price</div>
-                        <div class="price-val">৳১২৫০</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">Regular</div>
-                        <div class="old-price">৳১৬৫০</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="btn-order-sm" onclick="orderWhatsApp('K9 Dual Wireless Mic', 1250)">অর্ডার করুন</button>
-                    <button class="btn-details-sm">Details</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
-        <div style="max-width: 1000px; margin: 0 auto;">
-            
-            <div class="footer-sec" style="margin-bottom: 20px;">
-                <a href="tel:01765314487" style="font-size: 16px; font-weight: bold; color: #60a5fa;"><i class="fa-solid fa-headset"></i> Support: 01765314487</a>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>ScamX Store</h3>
+                <p>Founded by <b>MR SERAJ</b>. Bangladesh's most reliable tech and gadget online mega store.</p>
+                <p style="margin-top: 10px;"><i class="fa-solid fa-phone"></i> 01765314487</p>
             </div>
-
-            <!-- Links -->
-            <div class="footer-sec">
-                <div class="footer-sec-title">● প্রয়োজনীয় লিংক</div>
-                <ul class="footer-links">
-                    <li><a href="#">› Home Page</a></li>
-                    <li><a href="#products">› All Products</a></li>
-                    <li><a href="#">› Track Order</a></li>
-                    <li><a href="#">› Shopping Cart</a></li>
-                </ul>
+            <div class="footer-col">
+                <h3>Customer Care</h3>
+                <li>Help Center</li>
+                <li>How to Buy</li>
+                <li>Returns & Refunds</li>
+                <li>Terms & Conditions</li>
             </div>
-
-            <!-- Policies -->
-            <div class="footer-sec">
-                <div class="footer-sec-title">● গ্রাহক সেবা ও পলিসি</div>
-                <a href="#" class="policy-btn"><i class="fa-solid fa-truck"></i> Delivery Policy</a>
-                <a href="#" class="policy-btn"><i class="fa-solid fa-rotate-left"></i> Return & Replacement</a>
-                <a href="#" class="policy-btn"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
-                <a href="#" class="policy-btn"><i class="fa-solid fa-file-contract"></i> Terms & Conditions</a>
+            <div class="footer-col">
+                <h3>Top Brands</h3>
+                <li>Apple | Samsung | Xiaomi</li>
+                <li>Anker | Baseus | RealMe</li>
+                <li>OnePlus | Logitech | JBL</li>
             </div>
-
-            <!-- Trust Badges -->
-            <div class="footer-sec">
-                <div class="footer-sec-title">● নিরাপদ কেনাকাটা</div>
-                <div class="trust-item"><i class="fa-solid fa-circle-check"></i> 100% Original & Quality Assured</div>
-                <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> Cash on Delivery Nationwide</div>
-                <div class="trust-item"><i class="fa-solid fa-lock"></i> Secure & Fast Checkout</div>
+            <div class="footer-col">
+                <h3>Verified Business</h3>
+                <p><i class="fa-solid fa-check-circle" style="color: #25d366;"></i> Government Registered Mall</p>
+                <p><i class="fa-solid fa-lock" style="color: #ffb703;"></i> SSL Secure Checkout</p>
             </div>
-
-            <!-- WhatsApp Button -->
-            <a href="https://wa.me/8801765314487" class="btn-wa-footer" target="_blank">
-                <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> WhatsApp-এ মেসেজ করুন
-            </a>
-
-            <!-- Copyright -->
-            <div class="copyright-bar">
-                © 2026 ScamX Store. All Rights Reserved.
-            </div>
-
+        </div>
+        <div class="copyright-text">
+            © 2026 ScamX Store. Directed & Managed by <b>MR SERAJ</b>. All Rights Reserved.
         </div>
     </footer>
 
-    <!-- Floating Cart -->
-    <div class="floating-cart">
-        <i class="fa-solid fa-bag-shopping"></i>
-        <div class="cart-count">0</div>
-    </div>
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/8801765314487" class="floating-wa" target="_blank">
+        <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> WhatsApp Order
+    </a>
 
-    <!-- Script -->
+    <!-- JavaScript Engine for Dynamic 100+ Products -->
     <script>
-        function orderWhatsApp(productName, price) {
-            let phone = "8801765314487";
-            let message = `Hello ScamX Store! I want to order: ${productName} (৳${price}). Please send details.`;
-            let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        // 100 Brands & Product Catalog Engine
+        const brands = ["Apple", "Samsung", "Xiaomi", "Anker", "Baseus", "RealMe", "OnePlus", "Logitech", "JBL", "Lenovo", "Havit", "Haylou"];
+        const categories = [
+            { name: "Ultra SmartWatch Series 9", price: 1450, old: 1950, img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" },
+            { name: "TWS Wireless Earbuds Pro", price: 1250, old: 1700, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" },
+            { name: "Fast Charging PowerBank 20000mAh", price: 2150, old: 2800, img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400" },
+            { name: "RGB Mechanical Gaming Keyboard", price: 2450, old: 3200, img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400" },
+            { name: "Ergonomic Optical Gaming Mouse", price: 850, old: 1200, img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400" },
+            { name: "HiFi Bass Portable Speaker", price: 1850, old: 2400, img: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400" },
+            { name: "7.1 Surround Gaming Headphone", price: 1950, old: 2600, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
+            { name: "65W GaN Fast Wall Charger", price: 1650, old: 2200, img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
+            { name: "USB Studio Condenser Microphone", price: 2250, old: 3000, img: "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400" },
+            { name: "Adjustable Aluminum Laptop Stand", price: 950, old: 1400, img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400" }
+        ];
+
+        let cartCount = 0;
+        const grid = document.getElementById('productGrid');
+
+        // Automatically Generate 100 Premium Products
+        for(let i = 1; i <= 100; i++) {
+            let b = brands[i % brands.length];
+            let c = categories[i % categories.length];
+            let pPrice = c.price + (i * 10);
+            let pOld = c.old + (i * 12);
+            let discount = Math.round(((pOld - pPrice) / pOld) * 100);
+
+            let card = document.createElement('div');
+            card.className = 'product-card';
+            card.setAttribute('data-name', `${b} ${c.name}`.toLowerCase());
+
+            card.innerHTML = `
+                <span class="badge-discount">-${discount}% OFF</span>
+                <div class="product-img-box">
+                    <img src="${c.img}" alt="${b} Product">
+                </div>
+                <div>
+                    <div class="product-brand">${b} OFFICIAL</div>
+                    <div class="product-title">${b} ${c.name} (v${i})</div>
+                    <div class="rating-box">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span>(4.${(i%5)+5})</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="current-price">৳${pPrice}</div>
+                        <div class="old-price">৳${pOld}</div>
+                    </div>
+                </div>
+                <button class="btn-order" onclick="buyWhatsApp('${b} ${c.name}', ${pPrice})">
+                    <i class="fa-brands fa-whatsapp"></i> অর্ডার করুন
+                </button>
+            `;
+            grid.appendChild(card);
+        }
+
+        // WhatsApp Direct Order Function
+        function buyWhatsApp(pName, price) {
+            cartCount++;
+            document.getElementById('cartCount').innerText = cartCount;
+            let msg = `Hello MR SERAJ (ScamX Store)! I want to buy: ${pName} - Price: ৳${price}. Please process my order!`;
+            let url = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
         }
+
+        // Search Filter Engine
+        function filterProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('product-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getAttribute('data-name');
+                if (name.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // Flash Sale Timer Countdown
+        setInterval(() => {
+            let s = document.getElementById('sec');
+            let m = document.getElementById('min');
+            let secVal = parseInt(s.innerText);
+            if(secVal > 0) {
+                s.innerText = (secVal - 1 < 10 ? '0' : '') + (secVal - 1);
+            } else {
+                s.innerText = "59";
+                let minVal = parseInt(m.innerText);
+                m.innerText = (minVal - 1 < 10 ? '0' : '') + (minVal - 1);
+            }
+        }, 1000);
     </script>
 </body>
 </html>
