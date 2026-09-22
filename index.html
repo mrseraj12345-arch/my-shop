@@ -3,64 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScamX Store | Largest Tech & Gadget Mall in Bangladesh</title>
-    <!-- FontAwesome Icons & Google Fonts -->
+    <title>ScamX Store | Ultra Premium Tech Mall</title>
+    <!-- FontAwesome & Google Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #f57224; /* Daraz Orange Theme */
-            --primary-dark: #d65a11;
-            --secondary: #2e2e54;
-            --bg-body: #f4f4f6;
-            --card-bg: #ffffff;
-            --text-dark: #212121;
-            --text-gray: #757575;
-            --badge-red: #ff3b30;
-            --success-green: #25d366;
-            --shadow: 0 4px 15px rgba(0,0,0,0.06);
+            --bg-dark: #070913;
+            --card-bg: rgba(18, 22, 41, 0.75);
+            --neon-orange: #ff5e00;
+            --neon-orange-glow: rgba(255, 94, 0, 0.35);
+            --cyber-purple: #7928ca;
+            --platinum-gold: #ffb703;
+            --text-white: #ffffff;
+            --text-dim: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --success-green: #00e676;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--bg-body);
-            color: var(--text-dark);
-            padding-bottom: 70px;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(121, 40, 202, 0.15) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(255, 94, 0, 0.12) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-white);
+            padding-bottom: 80px;
         }
 
         a { text-decoration: none; color: inherit; }
 
         /* Top Announcement Bar */
         .top-bar {
-            background: var(--secondary);
-            color: #fff;
+            background: linear-gradient(90deg, #111428, #1c1536);
+            border-bottom: 1px solid var(--glass-border);
             font-size: 11px;
-            padding: 6px 15px;
+            padding: 8px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .top-bar span { font-weight: 600; color: #ffb703; }
+        .top-bar span { font-weight: 700; color: var(--platinum-gold); }
 
-        /* Header / Navbar */
+        /* Ultra Header */
         header {
-            background: #ffffff;
-            padding: 12px 15px;
+            background: rgba(11, 15, 30, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 14px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .header-container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -69,368 +75,355 @@
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
-            color: var(--primary);
+            background: linear-gradient(135deg, #fff 30%, var(--neon-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
-            color: var(--secondary);
-            font-size: 10px;
-            background: #f1f5f9;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 5px;
+            font-size: 9px;
+            background: var(--neon-orange);
+            color: #fff;
+            -webkit-text-fill-color: #fff;
+            padding: 2px 7px;
+            border-radius: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
 
         .search-box {
             flex: 1;
-            max-width: 500px;
+            max-width: 550px;
             position: relative;
         }
 
         .search-box input {
             width: 100%;
-            padding: 10px 40px 10px 15px;
-            border: 2px solid var(--primary);
-            border-radius: 25px;
+            padding: 12px 45px 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
             outline: none;
             font-size: 13px;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--neon-orange);
+            box-shadow: 0 0 15px var(--neon-orange-glow);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .search-box button {
             position: absolute;
-            right: 5px;
+            right: 6px;
             top: 50%;
             transform: translateY(-50%);
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--neon-orange), #d64900);
             color: #fff;
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             cursor: pointer;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            box-shadow: 0 2px 10px var(--neon-orange-glow);
         }
 
         .cart-icon-btn {
             position: relative;
-            font-size: 20px;
-            color: var(--secondary);
+            font-size: 22px;
+            color: #fff;
             cursor: pointer;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
         }
 
         .cart-badge {
             position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--primary);
+            top: -3px;
+            right: -3px;
+            background: var(--neon-orange);
             color: #fff;
             font-size: 10px;
-            font-weight: bold;
+            font-weight: 800;
             width: 18px;
             height: 18px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 0 8px var(--neon-orange);
         }
 
-        /* Hero Mega Banner */
+        /* Hero Banner */
         .hero-section {
-            max-width: 1200px;
-            margin: 15px auto;
+            max-width: 1280px;
+            margin: 20px auto;
             padding: 0 15px;
         }
 
         .hero-banner {
-            background: linear-gradient(135deg, #2e2e54 0%, #111126 100%);
-            border-radius: 16px;
-            padding: 30px 20px;
-            color: white;
+            background: linear-gradient(135deg, rgba(121, 40, 202, 0.3), rgba(255, 94, 0, 0.2)), var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px 25px;
             text-align: center;
             position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .owner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(90deg, rgba(255, 183, 3, 0.15), rgba(255, 94, 0, 0.15));
+            border: 1px solid var(--platinum-gold);
+            color: var(--platinum-gold);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .hero-banner h1 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 800;
-            margin-bottom: 8px;
-            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-banner p {
             font-size: 13px;
-            color: #cbd5e1;
-            margin-bottom: 20px;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 20px;
         }
 
-        .owner-tag {
-            display: inline-block;
-            background: rgba(245, 114, 36, 0.2);
-            border: 1px solid var(--primary);
-            color: #ffb703;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-
-        /* Flash Sale Header & Timer */
+        /* Flash Sale Bar */
         .flash-sale-bar {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
         }
 
         .flash-title {
             font-size: 16px;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--neon-orange);
             display: flex;
             align-items: center;
             gap: 8px;
+            text-shadow: 0 0 10px var(--neon-orange-glow);
         }
 
         .timer-box {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             font-size: 12px;
             font-weight: 700;
+            color: var(--text-dim);
         }
 
         .timer-unit {
-            background: var(--secondary);
-            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
             padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        /* Categories Bar */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        @media(min-width: 768px) {
-            .category-grid { grid-template-columns: repeat(8, 1fr); }
-        }
-
-        .cat-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 12px 8px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .cat-card:hover { transform: translateY(-3px); }
-
-        .cat-card i {
-            font-size: 20px;
-            color: var(--primary);
-            margin-bottom: 6px;
-        }
-
-        .cat-card span {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-dark);
+            border-radius: 6px;
+            border: 1px solid var(--glass-border);
         }
 
         /* Products Grid */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 14px;
         }
 
         @media (min-width: 640px) {
             .products-grid { grid-template-columns: repeat(3, 1fr); }
         }
-        @media (min-width: 992px) {
+        @media (min-width: 1024px) {
             .products-grid { grid-template-columns: repeat(5, 1fr); }
         }
 
         .product-card {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 10px;
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 12px;
             position: relative;
-            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .product-card:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+            border-color: rgba(255, 94, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--neon-orange-glow);
         }
 
         .badge-discount {
             position: absolute;
             top: 10px;
             left: 10px;
-            background: var(--badge-red);
+            background: linear-gradient(135deg, #ff0055, #ff5e00);
             color: white;
             font-size: 9px;
             font-weight: 800;
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 3px 8px;
+            border-radius: 20px;
             z-index: 2;
+            box-shadow: 0 2px 8px rgba(255, 0, 85, 0.4);
         }
 
         .product-img-box {
             width: 100%;
-            height: 130px;
+            height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            background: #f8fafc;
-            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            margin-bottom: 10px;
         }
 
         .product-img-box img {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 85%;
+            max-height: 85%;
             object-fit: contain;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
         }
 
         .product-brand {
             font-size: 10px;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
+            font-weight: 800;
+            color: var(--neon-orange);
+            letter-spacing: 0.5px;
         }
 
         .product-title {
             font-size: 12px;
             font-weight: 600;
-            line-height: 1.3;
-            height: 32px;
+            line-height: 1.4;
+            height: 34px;
             overflow: hidden;
             margin: 4px 0 6px;
-            color: var(--text-dark);
+            color: #f1f5f9;
         }
-
-        .rating-box {
-            font-size: 10px;
-            color: #ffb703;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 2px;
-        }
-        .rating-box span { color: var(--text-gray); margin-left: 4px; }
 
         .price-row {
             display: flex;
             align-items: baseline;
-            gap: 6px;
-            margin-bottom: 8px;
+            gap: 8px;
+            margin-bottom: 10px;
         }
 
         .current-price {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--platinum-gold);
         }
 
         .old-price {
             font-size: 11px;
             text-decoration: line-through;
-            color: var(--text-gray);
+            color: var(--text-dim);
         }
 
         .btn-order {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--neon-orange), #d64900);
             color: #ffffff;
             border: none;
             width: 100%;
-            padding: 8px;
-            border-radius: 6px;
+            padding: 10px;
+            border-radius: 10px;
             font-size: 11px;
             font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
-            transition: background 0.2s;
+            gap: 6px;
+            box-shadow: 0 4px 15px var(--neon-orange-glow);
+            transition: all 0.2s;
         }
 
-        .btn-order:hover { background: var(--primary-dark); }
+        .btn-order:hover {
+            filter: brightness(1.1);
+        }
 
-        /* Trust Feature Badges */
+        /* Features Bar */
         .features-bar {
-            max-width: 1200px;
-            margin: 30px auto;
+            max-width: 1280px;
+            margin: 40px auto;
             padding: 0 15px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 12px;
         }
         @media(min-width: 768px) {
             .features-bar { grid-template-columns: repeat(4, 1fr); }
         }
 
         .feature-item {
-            background: #ffffff;
-            padding: 15px;
-            border-radius: 12px;
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
         }
 
         .feature-item i {
-            font-size: 24px;
-            color: var(--primary);
+            font-size: 26px;
+            color: var(--neon-orange);
         }
 
-        .feature-item h4 { font-size: 13px; font-weight: 700; }
-        .feature-item p { font-size: 10px; color: var(--text-gray); }
+        .feature-item h4 { font-size: 13px; font-weight: 700; color: #fff; }
+        .feature-item p { font-size: 11px; color: var(--text-dim); }
 
         /* Footer */
         footer {
-            background: #1e1e2f;
-            color: #ffffff;
-            padding: 40px 20px 20px;
-            margin-top: 50px;
+            background: #04060d;
+            color: var(--text-dim);
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+            border-top: 1px solid var(--glass-border);
         }
 
         .footer-container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(1, 1fr);
-            gap: 25px;
+            gap: 30px;
         }
 
         @media(min-width: 768px) {
@@ -438,43 +431,41 @@
         }
 
         .footer-col h3 {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--primary);
+            margin-bottom: 15px;
+            color: #fff;
         }
 
         .footer-col p, .footer-col li {
             font-size: 12px;
-            color: #b0b0d0;
-            line-height: 1.8;
+            line-height: 2;
             list-style: none;
         }
 
         .copyright-text {
             text-align: center;
             font-size: 12px;
-            color: #757575;
-            margin-top: 30px;
+            color: #64748b;
+            margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid #2e2e45;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Bottom Sticky WhatsApp Floating Button */
         .floating-wa {
             position: fixed;
-            bottom: 15px;
-            right: 15px;
+            bottom: 20px;
+            right: 20px;
             background: var(--success-green);
             color: white;
-            padding: 10px 18px;
+            padding: 12px 22px;
             border-radius: 30px;
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 800;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 230, 118, 0.4);
             z-index: 9999;
         }
     </style>
@@ -483,7 +474,7 @@
 
     <!-- Top Announcement -->
     <div class="top-bar">
-        <div>⚡ Welcome to Bangladesh's Largest Tech Mall - <span>ScamX Store</span></div>
+        <div>🚀 BANGLADESH'S LARGEST ULTRA GADGET MALL - <span>ScamX Store</span></div>
         <div>Hotline: <b>01765314487</b></div>
     </div>
 
@@ -491,19 +482,17 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <i class="fa-solid fa-bag-shopping"></i> ScamX <span>MALL</span>
+                <i class="fa-solid fa-bolt-lightning" style="color: var(--neon-orange);"></i> ScamX <span>ULTRA MALL</span>
             </div>
             
             <div class="search-box">
-                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="১০০+ গ্যাজেট ও অ্যাকসেসরিজ থেকে খুঁজুন...">
+                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="৫০০টি গ্যাজেট থেকে পছন্দমতো প্রোডাক্ট খুঁজুন...">
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
 
-            <div class="header-actions">
-                <div class="cart-icon-btn">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <div class="cart-badge" id="cartCount">0</div>
-                </div>
+            <div class="cart-icon-btn">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <div class="cart-badge" id="cartCount">0</div>
             </div>
         </div>
     </header>
@@ -511,45 +500,33 @@
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="hero-banner">
-            <div class="owner-tag"><i class="fa-solid fa-crown"></i> FOUNDER & CEO: MR SERAJ</div>
+            <div class="owner-badge"><i class="fa-solid fa-crown"></i> MR SERAJ | FOUNDER & CEO</div>
             <h1>ScamX Premium Tech Mall</h1>
-            <p>১০০% অরিজিনাল ব্র্যান্ডেড গ্যাজেট ও ইলেকট্রনিক্স পান দেশের সর্বনিম্ন অফার প্রাইসে!</p>
+            <p>আপনার পছন্দের ৫০০টি অরিজিনাল গ্যাজেট প্রোডাক্টের ওপর পাচ্ছেন বিশেষ ছাড় ও ক্যাশ অন ডেলিভারি সুবিধা!</p>
         </div>
     </div>
 
     <div class="hero-section">
-        <!-- Categories -->
-        <div class="category-grid">
-            <div class="cat-card"><i class="fa-solid fa-clock"></i><span>Smartwatch</span></div>
-            <div class="cat-card"><i class="fa-solid fa-headphones"></i><span>Earbuds</span></div>
-            <div class="cat-card"><i class="fa-solid fa-bolt"></i><span>Power Bank</span></div>
-            <div class="cat-card"><i class="fa-solid fa-keyboard"></i><span>Keyboard</span></div>
-            <div class="cat-card"><i class="fa-solid fa-gamepad"></i><span>Gaming</span></div>
-            <div class="cat-card"><i class="fa-solid fa-plug"></i><span>Chargers</span></div>
-            <div class="cat-card"><i class="fa-solid fa-camera"></i><span>Camera/Mic</span></div>
-            <div class="cat-card"><i class="fa-solid fa-mobile-screen"></i><span>Accessories</span></div>
-        </div>
-
         <!-- Flash Sale Bar -->
         <div class="flash-sale-bar">
             <div class="flash-title">
-                <i class="fa-solid fa-bolt-lightning"></i> FLASH SALE
+                <i class="fa-solid fa-fire-flame-curved"></i> FLASH SALE - LIVE NOW
             </div>
             <div class="timer-box">
-                <span>Ends In:</span>
-                <div class="timer-unit" id="hrs">05</div>:
-                <div class="timer-unit" id="min">42</div>:
-                <div class="timer-unit" id="sec">19</div>
+                <span>Offer Closes In:</span>
+                <div class="timer-unit" id="hrs">08</div>:
+                <div class="timer-unit" id="min">14</div>:
+                <div class="timer-unit" id="sec">45</div>
             </div>
         </div>
 
-        <!-- 100+ Products Container -->
+        <!-- 500 Unique Products Container -->
         <div class="products-grid" id="productGrid">
-            <!-- JavaScript-এর মাধ্যমে ১০০টি পন্য স্বয়ংক্রিয়ভাবে জেনারেট হয়ে লোড হবে -->
+            <!-- JavaScript 500 Unique Catalog Engine -->
         </div>
     </div>
 
-    <!-- Trust Features -->
+    <!-- Features -->
     <div class="features-bar">
         <div class="feature-item">
             <i class="fa-solid fa-truck-fast"></i>
@@ -575,7 +552,7 @@
         <div class="feature-item">
             <i class="fa-solid fa-headset"></i>
             <div>
-                <h4>২৪/৭ কাস্টমার সাপোর্ট</h4>
+                <h4>২৪/৭ সাপোর্ট</h4>
                 <p>সরাসরি কল বা হোয়াটসঅ্যাপ</p>
             </div>
         </div>
@@ -585,93 +562,94 @@
     <footer>
         <div class="footer-container">
             <div class="footer-col">
-                <h3>ScamX Store</h3>
-                <p>Founded by <b>MR SERAJ</b>. Bangladesh's most reliable tech and gadget online mega store.</p>
-                <p style="margin-top: 10px;"><i class="fa-solid fa-phone"></i> 01765314487</p>
+                <h3 style="color: var(--neon-orange);">ScamX Store</h3>
+                <p>Owned & Operated by <b>MR SERAJ</b>. Premier Destination for Tech, Gaming & Gadget Accessories in Bangladesh.</p>
+                <p style="margin-top: 10px; color: #fff;"><i class="fa-solid fa-phone"></i> Helpline: 01765314487</p>
             </div>
             <div class="footer-col">
                 <h3>Customer Care</h3>
-                <li>Help Center</li>
-                <li>How to Buy</li>
-                <li>Returns & Refunds</li>
-                <li>Terms & Conditions</li>
+                <li>Help & FAQ</li>
+                <li>Order Tracking</li>
+                <li>Returns Policy</li>
+                <li>Privacy Policy</li>
             </div>
             <div class="footer-col">
-                <h3>Top Brands</h3>
-                <li>Apple | Samsung | Xiaomi</li>
-                <li>Anker | Baseus | RealMe</li>
-                <li>OnePlus | Logitech | JBL</li>
+                <h3>Authorized Brands</h3>
+                <li>Apple | Samsung | Sony | Bose</li>
+                <li>Anker | Baseus | RealMe | Razer</li>
+                <li>Logitech | JBL | Asus ROG | Xiaomi</li>
             </div>
             <div class="footer-col">
-                <h3>Verified Business</h3>
-                <p><i class="fa-solid fa-check-circle" style="color: #25d366;"></i> Government Registered Mall</p>
-                <p><i class="fa-solid fa-lock" style="color: #ffb703;"></i> SSL Secure Checkout</p>
+                <h3>Trust & Security</h3>
+                <p><i class="fa-solid fa-circle-check" style="color: var(--success-green);"></i> Verified E-Commerce Business</p>
+                <p><i class="fa-solid fa-lock" style="color: var(--platinum-gold);"></i> Encrypted Checkout</p>
             </div>
         </div>
         <div class="copyright-text">
-            © 2026 ScamX Store. Directed & Managed by <b>MR SERAJ</b>. All Rights Reserved.
+            © 2026 ScamX Store. Designed & Developed for <b>MR SERAJ</b>. All Rights Reserved.
         </div>
     </footer>
 
     <!-- Floating WhatsApp -->
     <a href="https://wa.me/8801765314487" class="floating-wa" target="_blank">
-        <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> WhatsApp Order
+        <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> WhatsApp Order
     </a>
 
-    <!-- JavaScript Engine for Dynamic 100+ Products -->
+    <!-- 500 Unique Product Generator Engine -->
     <script>
-        // 100 Brands & Product Catalog Engine
-        const brands = ["Apple", "Samsung", "Xiaomi", "Anker", "Baseus", "RealMe", "OnePlus", "Logitech", "JBL", "Lenovo", "Havit", "Haylou"];
-        const categories = [
-            { name: "Ultra SmartWatch Series 9", price: 1450, old: 1950, img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" },
-            { name: "TWS Wireless Earbuds Pro", price: 1250, old: 1700, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" },
-            { name: "Fast Charging PowerBank 20000mAh", price: 2150, old: 2800, img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400" },
-            { name: "RGB Mechanical Gaming Keyboard", price: 2450, old: 3200, img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400" },
-            { name: "Ergonomic Optical Gaming Mouse", price: 850, old: 1200, img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400" },
-            { name: "HiFi Bass Portable Speaker", price: 1850, old: 2400, img: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400" },
-            { name: "7.1 Surround Gaming Headphone", price: 1950, old: 2600, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
-            { name: "65W GaN Fast Wall Charger", price: 1650, old: 2200, img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
-            { name: "USB Studio Condenser Microphone", price: 2250, old: 3000, img: "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400" },
-            { name: "Adjustable Aluminum Laptop Stand", price: 950, old: 1400, img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400" }
+        const brands = [
+            "Apple", "Samsung", "Xiaomi", "Anker", "Baseus", "Realme", "OnePlus", "Logitech", 
+            "JBL", "Lenovo", "Havit", "Haylou", "Sony", "Bose", "Asus ROG", "Razer", 
+            "Fantech", "Fifine", "Amazfit", "Redragon", "Baseus Metal", "Joyroom", "Remax", "A4Tech",
+            "MageGee", "Ugreen", "Baseus Bowie", "OnePlus Nord", "Anker Soundcore", "Honor"
+        ];
+
+        const productTypes = [
+            { name: "Ultra Smartwatch Series Pro", basePrice: 1650, baseOld: 2200, img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" },
+            { name: "ANC Active Noise Earbuds", basePrice: 1450, baseOld: 1950, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" },
+            { name: "Fast Charging PowerBank 20000mAh", basePrice: 2250, baseOld: 2900, img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400" },
+            { name: "RGB Mechanical Gaming Keyboard", basePrice: 2650, baseOld: 3400, img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400" },
+            { name: "Precision Wireless Gaming Mouse", basePrice: 950, baseOld: 1350, img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400" },
+            { name: "Portable Bluetooth Speaker", basePrice: 1850, baseOld: 2500, img: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400" },
+            { name: "Pro Gaming Studio Headphone", basePrice: 2150, baseOld: 2800, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
+            { name: "65W GaN Fast Wall Charger", basePrice: 1750, baseOld: 2300, img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
+            { name: "USB Condenser Mic for Streaming", basePrice: 2450, baseOld: 3200, img: "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400" },
+            { name: "Adjustable Aluminum Laptop Stand", basePrice: 1050, baseOld: 1500, img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400" }
         ];
 
         let cartCount = 0;
         const grid = document.getElementById('productGrid');
 
-        // Automatically Generate 100 Premium Products
-        for(let i = 1; i <= 100; i++) {
-            let b = brands[i % brands.length];
-            let c = categories[i % categories.length];
-            let pPrice = c.price + (i * 10);
-            let pOld = c.old + (i * 12);
-            let discount = Math.round(((pOld - pPrice) / pOld) * 100);
+        // Generating 500 Unique Products with Dynamic Names & Pricing
+        for(let i = 1; i <= 500; i++) {
+            let brand = brands[i % brands.length];
+            let type = productTypes[i % productTypes.length];
+            
+            // Calculating Unique Names and Prices
+            let modelVersion = `Edition-${100 + i}`;
+            let fullTitle = `${brand} ${type.name} (${modelVersion})`;
+            let price = type.basePrice + ((i * 15) % 1500);
+            let oldPrice = price + 500 + ((i * 10) % 400);
+            let discount = Math.round(((oldPrice - price) / oldPrice) * 100);
 
             let card = document.createElement('div');
             card.className = 'product-card';
-            card.setAttribute('data-name', `${b} ${c.name}`.toLowerCase());
+            card.setAttribute('data-name', fullTitle.toLowerCase());
 
             card.innerHTML = `
                 <span class="badge-discount">-${discount}% OFF</span>
                 <div class="product-img-box">
-                    <img src="${c.img}" alt="${b} Product">
+                    <img src="${type.img}" alt="${fullTitle}">
                 </div>
                 <div>
-                    <div class="product-brand">${b} OFFICIAL</div>
-                    <div class="product-title">${b} ${c.name} (v${i})</div>
-                    <div class="rating-box">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                        <span>(4.${(i%5)+5})</span>
-                    </div>
+                    <div class="product-brand">${brand.toUpperCase()} OFFICIAL</div>
+                    <div class="product-title">${fullTitle}</div>
                     <div class="price-row">
-                        <div class="current-price">৳${pPrice}</div>
-                        <div class="old-price">৳${pOld}</div>
+                        <div class="current-price">৳${price}</div>
+                        <div class="old-price">৳${oldPrice}</div>
                     </div>
                 </div>
-                <button class="btn-order" onclick="buyWhatsApp('${b} ${c.name}', ${pPrice})">
+                <button class="btn-order" onclick="buyWhatsApp('${fullTitle}', ${price})">
                     <i class="fa-brands fa-whatsapp"></i> অর্ডার করুন
                 </button>
             `;
@@ -682,7 +660,7 @@
         function buyWhatsApp(pName, price) {
             cartCount++;
             document.getElementById('cartCount').innerText = cartCount;
-            let msg = `Hello MR SERAJ (ScamX Store)! I want to buy: ${pName} - Price: ৳${price}. Please process my order!`;
+            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please confirm details.`;
             let url = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
         }
@@ -702,7 +680,7 @@
             }
         }
 
-        // Flash Sale Timer Countdown
+        // Timer Countdown
         setInterval(() => {
             let s = document.getElementById('sec');
             let m = document.getElementById('min');
