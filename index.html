@@ -320,6 +320,7 @@
             overflow: hidden;
             background: rgba(255, 255, 255, 0.03);
             margin-bottom: 10px;
+            cursor: pointer;
         }
 
         .product-img-box img {
@@ -343,6 +344,7 @@
             overflow: hidden;
             margin: 4px 0 6px;
             color: #f1f5f9;
+            cursor: pointer;
         }
 
         .price-row {
@@ -379,6 +381,60 @@
             justify-content: center;
             gap: 6px;
             box-shadow: 0 4px 15px var(--neon-orange-glow);
+        }
+
+        /* Order Modal Styling */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+        .modal-card {
+            background: #121526;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+            position: relative;
+            color: #fff;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+        .close-modal-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            background: none; border: none;
+            color: #fff; font-size: 24px; cursor: pointer;
+        }
+        .modal-img {
+            width: 100%; height: 160px;
+            object-fit: contain; border-radius: 10px;
+            margin-bottom: 10px; background: rgba(255,255,255,0.02);
+        }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 12px; color: var(--text-dim); margin-bottom: 4px; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 10px;
+            border-radius: 8px; border: 1px solid var(--glass-border);
+            background: rgba(255,255,255,0.05); color: #fff; font-size: 13px;
+            outline: none;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--neon-orange);
+        }
+        .submit-order-btn {
+            width: 100%; background: linear-gradient(135deg, var(--neon-orange), #d64900);
+            color: #fff; border: none; padding: 12px;
+            font-size: 14px; font-weight: 800; border-radius: 10px;
+            cursor: pointer; margin-top: 10px;
         }
 
         /* Bottom Sticky Navigation */
@@ -528,6 +584,33 @@
         </div>
     </div>
 
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="close-modal-btn" onclick="closeOrderModal()">&times;</button>
+            <h3 style="color: var(--neon-orange); text-align: center; margin-bottom: 10px;">অর্ডার ফরম</h3>
+            <img id="mImg" class="modal-img" src="" alt="Product">
+            <h4 id="mTitle" style="font-size: 15px; margin-bottom: 5px;"></h4>
+            <p style="color: var(--platinum-gold); font-weight: bold; margin-bottom: 15px;">মূল্য: ৳<span id="mPrice"></span></p>
+
+            <form id="checkoutForm" onsubmit="handleOrderSubmit(event)">
+                <div class="form-group">
+                    <label>আপনার নাম *</label>
+                    <input type="text" id="custName" placeholder="আপনার পুরো নাম লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label>মোবাইল নম্বর *</label>
+                    <input type="tel" id="custPhone" placeholder="০১৭XXXXXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>সম্পূর্ণ ঠিকানা *</label>
+                    <textarea id="custAddress" rows="2" placeholder="জেলা, থানা ও আপনার পুরো ঠিকানা লিখুন" required></textarea>
+                </div>
+                <button type="submit" class="submit-order-btn">অর্ডার নিশ্চিত করুন (ক্যাশ অন ডেলিভারি)</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Bottom Navigation -->
     <div class="bottom-nav">
         <div class="nav-item" onclick="scrollToSec('productListSec')">
@@ -561,7 +644,6 @@
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
         import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-        // Verified Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCJSISaq3DOuXxz9ABbHnFmqhU7eyh_g6o",
             authDomain: "my-shop-c8d95.firebaseapp.com",
@@ -572,21 +654,41 @@
             measurementId: "G-NPN2NQRWBE"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const database = getDatabase(app);
 
-        // Global Order Processor with Database Sync
-        window.buyWhatsApp = function(pName, price) {
+        let selectedProduct = {};
+
+        window.openOrderModal = function(title, price, img) {
+            selectedProduct = { title, price, img };
+            document.getElementById('mTitle').innerText = title;
+            document.getElementById('mPrice').innerText = price;
+            document.getElementById('mImg').src = img;
+            document.getElementById('orderModal').style.display = 'flex';
+        };
+
+        window.closeOrderModal = function() {
+            document.getElementById('orderModal').style.display = 'none';
+        };
+
+        window.handleOrderSubmit = function(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddress').value;
+
             try {
                 push(ref(database, 'orders/'), {
-                    product: pName,
-                    price: price,
+                    product: selectedProduct.title,
+                    price: selectedProduct.price,
+                    customerName: name,
+                    phone: phone,
+                    address: address,
                     orderTime: new Date().toISOString()
                 });
             } catch (e) {
-                console.log("Firebase status:", e);
+                console.log("Firebase Status:", e);
             }
 
             let cartEl = document.getElementById('cartCount');
@@ -594,8 +696,11 @@
                 cartEl.innerText = parseInt(cartEl.innerText) + 1;
             }
 
-            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please confirm details.`;
+            let msg = `Hello MR SERAJ (ScamX Store)!\nNew Order Request:\n📦 Product: ${selectedProduct.title}\n💰 Price: ৳${selectedProduct.price}\n👤 Name: ${name}\n📞 Phone: ${phone}\n📍 Address: ${address}`;
             let url = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
+            
+            closeOrderModal();
+            document.getElementById('checkoutForm').reset();
             window.open(url, '_blank');
         };
     </script>
@@ -655,19 +760,19 @@
 
                 card.innerHTML = `
                     <span class="badge-discount">-${discount}% OFF</span>
-                    <div class="product-img-box">
+                    <div class="product-img-box" onclick="openOrderModal('${item.title}', ${item.price}, '${item.img}')">
                         <img src="${item.img}" alt="${item.title}">
                     </div>
                     <div>
                         <div class="product-brand">${item.brand}</div>
-                        <div class="product-title">${item.title}</div>
+                        <div class="product-title" onclick="openOrderModal('${item.title}', ${item.price}, '${item.img}')">${item.title}</div>
                         <div class="price-row">
                             <div class="current-price">৳${item.price}</div>
                             <div class="old-price">৳${item.old}</div>
                         </div>
                     </div>
-                    <button class="btn-order" onclick="buyWhatsApp('${item.title}', ${item.price})">
-                        <i class="fa-brands fa-whatsapp"></i> অর্ডার করুন
+                    <button class="btn-order" onclick="openOrderModal('${item.title}', ${item.price}, '${item.img}')">
+                        <i class="fa-solid fa-cart-shopping"></i> অর্ডার করুন
                     </button>
                 `;
                 grid.appendChild(card);
