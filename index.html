@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScamX Store | Premium Online Mall</title>
+    <title>ScamX Store | Ultra Mega Mall in Bangladesh</title>
     <!-- FontAwesome & Google Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -228,11 +228,6 @@
             transition: transform 0.4s;
         }
 
-        .cat-card-box:hover img {
-            transform: scale(1.08);
-            filter: brightness(0.45);
-        }
-
         .cat-card-title {
             position: absolute;
             bottom: 12px;
@@ -243,7 +238,6 @@
             font-weight: 800;
             color: #ffffff;
             text-shadow: 0 2px 8px rgba(0,0,0,0.9);
-            letter-spacing: 0.5px;
         }
 
         /* Filter Chips */
@@ -303,12 +297,6 @@
             transition: all 0.3s;
         }
 
-        .product-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 94, 0, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--neon-orange-glow);
-        }
-
         .badge-discount {
             position: absolute;
             top: 10px;
@@ -345,7 +333,6 @@
             font-size: 10px;
             font-weight: 800;
             color: var(--neon-orange);
-            letter-spacing: 0.5px;
         }
 
         .product-title {
@@ -475,7 +462,7 @@
         <div class="hero-banner">
             <div class="owner-badge"><i class="fa-solid fa-crown"></i> MR SERAJ | FOUNDER & CEO</div>
             <h1>ScamX Store</h1>
-            <p>আপনার পছন্দের সেকশনে ক্লিক করে সব প্রিমিয়াম প্রোডাক্টগুলো এক্সপ্লোর করুন!</p>
+            <p>আপনার পছন্দের সেকশনে ক্লিক করে সব প্রিমিয়াম প্রোডাক্টগুলো এক্সপ্লোর করুন!</p>
         </div>
 
         <!-- Category Grid Section -->
@@ -568,7 +555,51 @@
         © 2026 ScamX Store. Managed & Directed by <b>MR SERAJ</b>. All Rights Reserved.
     </footer>
 
-    <!-- Handcrafted 100% Unique Real Product Database -->
+    <!-- Firebase SDK Scripts -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // Verified Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCJSISaq3DOuXxz9ABbHnFmqhU7eyh_g6o",
+            authDomain: "my-shop-c8d95.firebaseapp.com",
+            projectId: "my-shop-c8d95",
+            storageBucket: "my-shop-c8d95.firebasestorage.app",
+            messagingSenderId: "455155590758",
+            appId: "1:455155590758:web:f542d7691920a830ccefa7",
+            measurementId: "G-NPN2NQRWBE"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        // Global Order Processor with Database Sync
+        window.buyWhatsApp = function(pName, price) {
+            try {
+                push(ref(database, 'orders/'), {
+                    product: pName,
+                    price: price,
+                    orderTime: new Date().toISOString()
+                });
+            } catch (e) {
+                console.log("Firebase status:", e);
+            }
+
+            let cartEl = document.getElementById('cartCount');
+            if(cartEl) {
+                cartEl.innerText = parseInt(cartEl.innerText) + 1;
+            }
+
+            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please confirm details.`;
+            let url = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        };
+    </script>
+
     <script>
         const productsDatabase = [
             // Smart Watch
@@ -597,28 +628,22 @@
             { cat: "homedecor", brand: "LUXURY", title: "3D Crystal Ball LED Galaxy Night Lamp", price: 850, old: 1250, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400" },
             { cat: "homedecor", brand: "NORDIC", title: "Nordic Minimalist Ceramic Desk Lamp", price: 1250, old: 1750, img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400" },
             { cat: "homedecor", brand: "AROMA", title: "Aroma Diffuser Essential Oil Humidifier", price: 950, old: 1400, img: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400" },
-            { cat: "homedecor", brand: "DECOR", title: "Modern Ceramic Flower Vase for Table", price: 650, old: 990, img: "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?w=400" },
 
             // Gaming
             { cat: "gaming", brand: "RAZER", title: "Razer DeathAdder V2 Gaming Mouse", price: 1850, old: 2400, img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400" },
             { cat: "gaming", brand: "LOGITECH", title: "Logitech G413 Mechanical Keyboard", price: 2950, old: 3800, img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400" },
-            { cat: "gaming", brand: "FANTECH", title: "Fantech HG11 RGB Surround Headset", price: 1650, old: 2200, img: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=400" },
 
             // Men's Wear
             { cat: "mens", brand: "CASUAL", title: "Premium Cotton Slim-Fit Formal Shirt", price: 950, old: 1450, img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400" },
             { cat: "mens", brand: "TRENDY", title: "Oversized Drop Shoulder Black T-Shirt", price: 650, old: 990, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400" },
-            { cat: "mens", brand: "DENIM", title: "Stretchable Blue Casual Denim Jeans", price: 1350, old: 1850, img: "https://images.unsplash.com/photo-1542272604-780c36856842?w=400" },
 
             // Women's Wear
             { cat: "womens", brand: "BOUTIQUE", title: "Exclusive Floral Digital Printed 3-Piece", price: 1850, old: 2500, img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400" },
-            { cat: "womens", brand: "ELEGANT", title: "Designer Embroidered Cotton Kurti Set", price: 1250, old: 1750, img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400" },
             { cat: "womens", brand: "LUXURY BAG", title: "PU Leather Crossbody Handbag for Women", price: 1450, old: 1990, img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400" }
         ];
 
-        let cartCount = 0;
         const grid = document.getElementById('productGrid');
 
-        // Render Function
         function renderProducts(items) {
             grid.innerHTML = "";
             items.forEach((item) => {
@@ -649,10 +674,8 @@
             });
         }
 
-        // Initial Load
         renderProducts(productsDatabase);
 
-        // Filter Category
         function filterCategory(catKey, element) {
             if(element) {
                 let chips = document.getElementsByClassName('filter-chip');
@@ -668,14 +691,6 @@
             }
 
             scrollToSec('productListSec');
-        }
-
-        function buyWhatsApp(pName, price) {
-            cartCount++;
-            document.getElementById('cartCount').innerText = cartCount;
-            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please confirm details.`;
-            let url = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
-            window.open(url, '_blank');
         }
 
         function openWhatsAppDirect() {
