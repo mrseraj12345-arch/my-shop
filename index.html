@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScamX Store | Ultra Mega Mall in Bangladesh</title>
+    <title>ScamX Store | Premium Online Mall</title>
     <!-- FontAwesome & Google Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -475,7 +475,7 @@
         <div class="hero-banner">
             <div class="owner-badge"><i class="fa-solid fa-crown"></i> MR SERAJ | FOUNDER & CEO</div>
             <h1>ScamX Store</h1>
-            <p>আপনার পছন্দের সেকশনে ক্লিক করে ১০০০টি প্রিমিয়াম প্রোডাক্ট এক্সপ্লোর করুন!</p>
+            <p>আপনার পছন্দের সেকশনে ক্লিক করে সব প্রিমিয়াম প্রোডাক্টগুলো এক্সপ্লোর করুন!</p>
         </div>
 
         <!-- Category Grid Section -->
@@ -533,12 +533,11 @@
             <div class="filter-chip" onclick="filterCategory('gaming', this)">Gaming</div>
             <div class="filter-chip" onclick="filterCategory('mens', this)">Men's Wear</div>
             <div class="filter-chip" onclick="filterCategory('womens', this)">Women's Wear</div>
-            <div class="filter-chip" onclick="filterCategory('toys', this)">Kids Toys</div>
         </div>
 
         <!-- Products Grid -->
         <div class="products-grid" id="productGrid">
-            <!-- Dynamic JavaScript Product Rendering -->
+            <!-- Handcrafted Real Product Catalog -->
         </div>
     </div>
 
@@ -566,108 +565,55 @@
     </div>
 
     <footer>
-        © 2026 ScamX Store. Owned & Directed by <b>MR SERAJ</b>. All Rights Reserved.
+        © 2026 ScamX Store. Managed & Directed by <b>MR SERAJ</b>. All Rights Reserved.
     </footer>
 
-    <!-- JavaScript Data Render -->
+    <!-- Handcrafted 100% Unique Real Product Database -->
     <script>
-        const categoriesData = [
-            {
-                cat: "smartwatch", brand: "APPLE", baseTitle: "Watch Ultra Titanium Series", basePrice: 3200, baseOld: 4100,
-                imgs: [
-                    "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400",
-                    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
-                    "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400"
-                ]
-            },
-            {
-                cat: "earbuds", brand: "AIRPODS", baseTitle: "Active Noise Cancelling TWS Earbuds", basePrice: 1450, baseOld: 1950,
-                imgs: [
-                    "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400",
-                    "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400",
-                    "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400"
-                ]
-            },
-            {
-                cat: "headphones", brand: "SONY & JBL", baseTitle: "Over-Ear Wireless Studio Headphone", basePrice: 2450, baseOld: 3200,
-                imgs: [
-                    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
-                    "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400"
-                ]
-            },
-            {
-                cat: "gadgets", brand: "ANKER & BASEUS", baseTitle: "Fast Charger & Digital PowerBank", basePrice: 1850, baseOld: 2500,
-                imgs: [
-                    "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400",
-                    "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400"
-                ]
-            },
-            {
-                cat: "homedecor", brand: "LUXURY DECOR", baseTitle: "3D Ambient Crystal Night Lamp", basePrice: 850, baseOld: 1250,
-                imgs: [
-                    "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400",
-                    "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400",
-                    "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
-                ]
-            },
-            {
-                cat: "gaming", brand: "RAZER & LOGITECH", baseTitle: "RGB Mechanical Keyboard & Gaming Mouse", basePrice: 2150, baseOld: 2800,
-                imgs: [
-                    "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
-                    "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400"
-                ]
-            },
-            {
-                cat: "mens", brand: "MEN'S FASHION", baseTitle: "Casual Cotton Shirt & Denim Jeans", basePrice: 950, baseOld: 1450,
-                imgs: [
-                    "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400",
-                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400",
-                    "https://images.unsplash.com/photo-1542272604-780c36856842?w=400"
-                ]
-            },
-            {
-                cat: "womens", brand: "WOMEN'S BOUTIQUE", baseTitle: "Designer Printed 3-Piece & Leather Bag", basePrice: 1650, baseOld: 2300,
-                imgs: [
-                    "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400",
-                    "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400",
-                    "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400"
-                ]
-            },
-            {
-                cat: "toys", brand: "KIDS TOYS", name: "High-Speed RC Stunt Car & Toys", basePrice: 1150, baseOld: 1650,
-                imgs: [
-                    "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=400",
-                    "https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=400"
-                ]
-            }
+        const productsDatabase = [
+            // Smart Watch
+            { cat: "smartwatch", brand: "APPLE", title: "Apple Watch Ultra 2 Titanium Case", price: 3450, old: 4200, img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" },
+            { cat: "smartwatch", brand: "SAMSUNG", title: "Samsung Galaxy Watch 6 Classic", price: 2850, old: 3500, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
+            { cat: "smartwatch", brand: "XIAOMI", title: "Xiaomi Haylou Solar Plus RT3", price: 1850, old: 2400, img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400" },
+            { cat: "smartwatch", brand: "AMAZFIT", title: "Amazfit GTS 4 Mini Smartwatch", price: 2150, old: 2700, img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400" },
+
+            // Earbuds
+            { cat: "earbuds", brand: "APPLE", title: "AirPods Pro (2nd Gen) Type-C", price: 1950, old: 2600, img: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400" },
+            { cat: "earbuds", brand: "REALME", title: "Realme Buds Air 5 Pro ANC Earbuds", price: 1450, old: 1950, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" },
+            { cat: "earbuds", brand: "ONEPLUS", title: "OnePlus Buds Z2 True Wireless", price: 1650, old: 2200, img: "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400" },
+            { cat: "earbuds", brand: "ANKER", title: "Anker Soundcore Liberty 4 NC", price: 2350, old: 3100, img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400" },
+
+            // Headphones
+            { cat: "headphones", brand: "SONY", title: "Sony WH-1000XM5 Wireless Headphones", price: 3850, old: 4800, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
+            { cat: "headphones", brand: "JBL", title: "JBL Tune 760NC Over-Ear Headphones", price: 2450, old: 3100, img: "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400" },
+            { cat: "headphones", brand: "BOSE", title: "Bose QuietComfort 45 Bluetooth", price: 4250, old: 5200, img: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400" },
+
+            // Gadgets
+            { cat: "gadgets", brand: "ANKER", title: "Anker 20,000mAh 22.5W Fast PowerBank", price: 2250, old: 2900, img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400" },
+            { cat: "gadgets", brand: "BASEUS", title: "Baseus 65W GaN Fast Wall Charger", price: 1750, old: 2300, img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
+            { cat: "gadgets", brand: "UGREEN", title: "Ugreen 7-in-1 Type-C USB Hub Adapter", price: 1950, old: 2600, img: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=400" },
+
+            // Home Decor
+            { cat: "homedecor", brand: "LUXURY", title: "3D Crystal Ball LED Galaxy Night Lamp", price: 850, old: 1250, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400" },
+            { cat: "homedecor", brand: "NORDIC", title: "Nordic Minimalist Ceramic Desk Lamp", price: 1250, old: 1750, img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400" },
+            { cat: "homedecor", brand: "AROMA", title: "Aroma Diffuser Essential Oil Humidifier", price: 950, old: 1400, img: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400" },
+            { cat: "homedecor", brand: "DECOR", title: "Modern Ceramic Flower Vase for Table", price: 650, old: 990, img: "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?w=400" },
+
+            // Gaming
+            { cat: "gaming", brand: "RAZER", title: "Razer DeathAdder V2 Gaming Mouse", price: 1850, old: 2400, img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400" },
+            { cat: "gaming", brand: "LOGITECH", title: "Logitech G413 Mechanical Keyboard", price: 2950, old: 3800, img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400" },
+            { cat: "gaming", brand: "FANTECH", title: "Fantech HG11 RGB Surround Headset", price: 1650, old: 2200, img: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=400" },
+
+            // Men's Wear
+            { cat: "mens", brand: "CASUAL", title: "Premium Cotton Slim-Fit Formal Shirt", price: 950, old: 1450, img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400" },
+            { cat: "mens", brand: "TRENDY", title: "Oversized Drop Shoulder Black T-Shirt", price: 650, old: 990, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400" },
+            { cat: "mens", brand: "DENIM", title: "Stretchable Blue Casual Denim Jeans", price: 1350, old: 1850, img: "https://images.unsplash.com/photo-1542272604-780c36856842?w=400" },
+
+            // Women's Wear
+            { cat: "womens", brand: "BOUTIQUE", title: "Exclusive Floral Digital Printed 3-Piece", price: 1850, old: 2500, img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400" },
+            { cat: "womens", brand: "ELEGANT", title: "Designer Embroidered Cotton Kurti Set", price: 1250, old: 1750, img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400" },
+            { cat: "womens", brand: "LUXURY BAG", title: "PU Leather Crossbody Handbag for Women", price: 1450, old: 1990, img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400" }
         ];
-
-        const modelNames = ["V1 Pro", "Ultra Plus", "Max Edition", "Pro Wireless", "Signature Series", "Elite Gold", "Limited Pro", "Urban Style", "Classic Fit", "Master Edition"];
-
-        // 1000 Unique Products Generator Algorithm
-        const productsDatabase = [];
-        let idCounter = 1;
-
-        for (let i = 0; i < 1000; i++) {
-            let group = categoriesData[i % categoriesData.length];
-            let model = modelNames[i % modelNames.length];
-            let img = group.imgs[i % group.imgs.length];
-            
-            let title = `${group.baseTitle} ${model} #${idCounter}`;
-            let price = group.basePrice + ((i * 17) % 700);
-            let oldPrice = price + 350 + ((i * 11) % 400);
-
-            productsDatabase.push({
-                cat: group.cat,
-                brand: group.brand,
-                title: title,
-                price: price,
-                old: oldPrice,
-                img: img
-            });
-
-            idCounter++;
-        }
 
         let cartCount = 0;
         const grid = document.getElementById('productGrid');
@@ -727,7 +673,7 @@
         function buyWhatsApp(pName, price) {
             cartCount++;
             document.getElementById('cartCount').innerText = cartCount;
-            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please confirm my order!`;
+            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please confirm details.`;
             let url = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
         }
