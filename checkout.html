@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অর্ডার নিশ্চিত করুন - ScamX Store</title>
+    <style>
+        body {
+            background-color: #0d0f1b;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            background: #16192b;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #ff6b00;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #ccc;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: #0d0f1b;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            width: 100%;
+            background: #ff6b00;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #ff6b00;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← হোমপেজে ফিরে যান</a>
+
+    <div class="container">
+        <h2>অর্ডার সম্পূর্ণ করুন</h2>
+        <form>
+            <div class="form-group">
+                <label>আপনার নাম:</label>
+                <input type="text" placeholder="পুরো নাম লিখুন" required>
+            </div>
+            <div class="form-group">
+                <label>মোবাইল নম্বর:</label>
+                <input type="tel" placeholder="০১৭xxxxxxxx" required>
+            </div>
+            <div class="form-group">
+                <label>সম্পূর্ণ ঠিকানা:</label>
+                <textarea rows="3" placeholder="জেলা, থানা ও এলাকার নাম লিখুন" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">অর্ডার নিশ্চিত করুন (ক্যাশ অন ডেলিভারি)</button>
+        </form>
+    </div>
+
+</body>
+</html>
