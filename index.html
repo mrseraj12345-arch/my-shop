@@ -41,7 +41,7 @@
 
         a { text-decoration: none; color: inherit; }
 
-        /* Top Announcement Bar */
+        /* Top Bar */
         .top-bar {
             background: linear-gradient(90deg, #111428, #1c1536);
             border-bottom: 1px solid var(--glass-border);
@@ -169,7 +169,7 @@
             color: var(--text-dim);
         }
 
-        /* Section Title Header */
+        /* Section Titles */
         .sec-header {
             display: flex;
             justify-content: space-between;
@@ -188,7 +188,7 @@
 
         .sec-title i { color: var(--neon-orange); }
 
-        /* Category Card Grid (Screenshot Inspired) */
+        /* Category Grid */
         .cat-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -205,7 +205,7 @@
 
         .cat-card-box {
             position: relative;
-            height: 120px;
+            height: 110px;
             border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
@@ -224,13 +224,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.65);
+            filter: brightness(0.6);
             transition: transform 0.4s;
         }
 
         .cat-card-box:hover img {
             transform: scale(1.08);
-            filter: brightness(0.5);
+            filter: brightness(0.45);
         }
 
         .cat-card-title {
@@ -239,14 +239,14 @@
             left: 0;
             right: 0;
             text-align: center;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 800;
             color: #ffffff;
             text-shadow: 0 2px 8px rgba(0,0,0,0.9);
             letter-spacing: 0.5px;
         }
 
-        /* Active Filter Chip Bar */
+        /* Filter Chips */
         .filter-chips {
             display: flex;
             gap: 10px;
@@ -287,7 +287,7 @@
             .products-grid { grid-template-columns: repeat(3, 1fr); }
         }
         @media (min-width: 1024px) {
-            .products-grid { grid-template-columns: repeat(5, 1fr); }
+            .products-grid { grid-template-columns: repeat(4, 1fr); }
         }
 
         .product-card {
@@ -335,9 +335,10 @@
         }
 
         .product-img-box img {
-            max-width: 85%;
-            max-height: 85%;
-            object-fit: contain;
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .product-brand {
@@ -365,7 +366,7 @@
         }
 
         .current-price {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 800;
             color: var(--platinum-gold);
         }
@@ -393,7 +394,7 @@
             box-shadow: 0 4px 15px var(--neon-orange-glow);
         }
 
-        /* Bottom Sticky Navigation Bar (Screenshot Style) */
+        /* Bottom Sticky Navigation */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -422,8 +423,6 @@
 
         .nav-item i { font-size: 18px; }
 
-        .nav-item.active { color: var(--neon-orange); }
-
         .nav-item-home {
             background: linear-gradient(135deg, var(--neon-orange), #d64900);
             color: white;
@@ -437,21 +436,15 @@
             box-shadow: 0 4px 15px var(--neon-orange-glow);
             border: 3px solid var(--bg-dark);
         }
-        .nav-item-home i { font-size: 20px; }
 
-        /* Footer */
         footer {
             background: #04060d;
             color: var(--text-dim);
-            padding: 40px 20px;
+            padding: 30px 20px;
             margin-top: 50px;
             border-top: 1px solid var(--glass-border);
-        }
-
-        .copyright-text {
             text-align: center;
             font-size: 12px;
-            color: #64748b;
         }
     </style>
 </head>
@@ -471,7 +464,7 @@
             </div>
             
             <div class="search-box">
-                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="ক্যাটাগরি বা প্রোডাক্টের নাম দিয়ে খুঁজুন...">
+                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="প্রোডাক্টের নাম দিয়ে খুঁজুন...">
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
@@ -481,18 +474,18 @@
     <div class="hero-section">
         <div class="hero-banner">
             <div class="owner-badge"><i class="fa-solid fa-crown"></i> MR SERAJ | FOUNDER & CEO</div>
-            <h1>ScamX Premium Fashion & Shopping Mall</h1>
-            <p>নিচের ক্যাটাগরিগুলোতে চাপ দিয়ে আপনার পছন্দের সেকশনটি সরাসরি সিলেক্ট করুন!</p>
+            <h1>ScamX Premium Store</h1>
+            <p>আপনার পছন্দের সেকশনে ক্লিক করে সব অরিজিনাল ও ইউনিক প্রোডাক্টগুলো দেখুন!</p>
         </div>
 
-        <!-- Category Grid Section (Screenshot Style) -->
+        <!-- Category Grid Section -->
         <div class="sec-header">
             <div class="sec-title"><i class="fa-solid fa-layer-group"></i> Featured Categories</div>
         </div>
 
         <div class="cat-grid">
             <div class="cat-card-box" onclick="filterCategory('smartwatch')">
-                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500" alt="Smart Watch">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Smart Watch">
                 <div class="cat-card-title">Smart Watch</div>
             </div>
             <div class="cat-card-box" onclick="filterCategory('headphones')">
@@ -527,7 +520,7 @@
 
         <!-- Filter Chips Bar -->
         <div class="sec-header" id="productListSec">
-            <div class="sec-title"><i class="fa-solid fa-bag-shopping"></i> Product Collection</div>
+            <div class="sec-title"><i class="fa-solid fa-bag-shopping"></i> Product List</div>
         </div>
 
         <div class="filter-chips">
@@ -540,16 +533,15 @@
             <div class="filter-chip" onclick="filterCategory('gaming', this)">Gaming</div>
             <div class="filter-chip" onclick="filterCategory('mens', this)">Men's Wear</div>
             <div class="filter-chip" onclick="filterCategory('womens', this)">Women's Wear</div>
-            <div class="filter-chip" onclick="filterCategory('toys', this)">Kids Toys</div>
         </div>
 
-        <!-- Products Container -->
+        <!-- Products Grid -->
         <div class="products-grid" id="productGrid">
-            <!-- Dynamic JavaScript Catalog -->
+            <!-- Dynamic JavaScript Product Rendering -->
         </div>
     </div>
 
-    <!-- Bottom Sticky Navigation Bar -->
+    <!-- Bottom Navigation -->
     <div class="bottom-nav">
         <div class="nav-item" onclick="scrollToSec('productListSec')">
             <i class="fa-solid fa-list-ul"></i>
@@ -572,80 +564,90 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <div class="copyright-text">
-            © 2026 ScamX Store. Managed & Owned by <b>MR SERAJ</b>. All Rights Reserved.
-        </div>
+        © 2026 ScamX Store. Owned & Directed by <b>MR SERAJ</b>. All Rights Reserved.
     </footer>
 
-    <!-- JavaScript Filter Engine -->
+    <!-- JavaScript Data Render -->
     <script>
-        const catalogTemplates = [
-            // SmartWatch
-            { key: "smartwatch", cat: "SMART WATCH", name: "Ultra Smartwatch Series Pro", basePrice: 1650, baseOld: 2200, img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" },
+        // 100% Unique Real Product Database
+        const productsDatabase = [
+            // Smart Watch
+            { cat: "smartwatch", brand: "APPLE", title: "Apple Watch Ultra 2 Titanium Case", price: 3450, old: 4200, img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400" },
+            { cat: "smartwatch", brand: "SAMSUNG", title: "Samsung Galaxy Watch 6 Classic", price: 2850, old: 3500, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
+            { cat: "smartwatch", brand: "XIAOMI", title: "Xiaomi Haylou Solar Plus RT3 Smartwatch", price: 1850, old: 2400, img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400" },
+            
             // Earbuds
-            { key: "earbuds", cat: "EARBUDS", name: "ANC Active Noise Wireless Earbuds", basePrice: 1450, baseOld: 1950, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" },
-            // Headphones
-            { key: "headphones", cat: "HEADPHONES", name: "Pro Studio Wireless Gaming Headphone", basePrice: 2150, baseOld: 2800, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
-            // Gadgets
-            { key: "gadgets", cat: "SMART GADGETS", name: "Fast Charging PowerBank 20000mAh", basePrice: 2250, baseOld: 2900, img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400" },
-            // Home Decor
-            { key: "homedecor", cat: "HOME DECOR", name: "3D Crystal Ball LED Night Lamp", basePrice: 750, baseOld: 1150, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400" },
-            // Gaming
-            { key: "gaming", cat: "GAMERS SPECIAL", name: "RGB Mechanical Gaming Keyboard", basePrice: 2650, baseOld: 3400, img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400" },
-            // Men's
-            { key: "mens", cat: "MEN'S FASHION", name: "Premium Slim-Fit Casual Cotton Shirt", basePrice: 950, baseOld: 1450, img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400" },
-            // Women's
-            { key: "womens", cat: "WOMEN'S WEAR", name: "Exclusive Digital Printed Cotton 3-Piece", basePrice: 1850, baseOld: 2600, img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400" },
-            // Toys
-            { key: "toys", cat: "KIDS TOYS", name: "High-Speed Remote Control RC Stunt Car", basePrice: 1350, baseOld: 1950, img: "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=400" }
-        ];
+            { cat: "earbuds", brand: "APPLE", title: "AirPods Pro (2nd Generation) Type-C", price: 1950, old: 2600, img: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400" },
+            { cat: "earbuds", brand: "REALME", title: "Realme Buds Air 5 Pro ANC Earbuds", price: 1450, old: 1950, img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" },
+            { cat: "earbuds", brand: "ONEPLUS", title: "OnePlus Buds Z2 True Wireless", price: 1650, old: 2200, img: "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400" },
 
-        const styleVariants = [
-            "Royal Edition", "Luxury Collection", "Signature Series", "Urban Style", "Classic Premium", 
-            "Trendsetter", "Limited Edition", "Modern Fit", "Elite Choice", "Imperial Gold"
+            // Headphones
+            { cat: "headphones", brand: "SONY", title: "Sony WH-1000XM5 Wireless Headphones", price: 3850, old: 4800, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
+            { cat: "headphones", brand: "JBL", title: "JBL Tune 760NC Wireless Over-Ear", price: 2450, old: 3100, img: "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400" },
+
+            // Gadgets
+            { cat: "gadgets", brand: "ANKER", title: "Anker 20,000mAh 22.5W Fast PowerBank", price: 2250, old: 2900, img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400" },
+            { cat: "gadgets", brand: "BASEUS", title: "Baseus 65W GaN Fast Wall Charger", price: 1750, old: 2300, img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
+
+            // Home Decor
+            { cat: "homedecor", brand: "LUXURY", title: "3D Crystal Ball LED Galaxy Night Lamp", price: 850, baseOld: 1250, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400" },
+            { cat: "homedecor", brand: "DECOR", title: "Nordic Minimalist Ceramic Desk Lamp", price: 1250, baseOld: 1750, img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400" },
+            { cat: "homedecor", brand: "CREATIVE", title: "Aroma Diffuser Essential Oil Humidifier", price: 950, baseOld: 1400, img: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400" },
+
+            // Gaming
+            { cat: "gaming", brand: "RAZER", title: "Razer DeathAdder V2 Gaming Mouse", price: 1850, old: 2400, img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400" },
+            { cat: "gaming", brand: "LOGITECH", title: "Logitech G413 Mechanical Gaming Keyboard", price: 2950, old: 3800, img: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400" },
+
+            // Men's Wear
+            { cat: "mens", brand: "CASUAL", title: "Premium Cotton Slim-Fit Formal Shirt", price: 950, old: 1450, img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400" },
+            { cat: "mens", brand: "TRENDY", title: "Oversized Drop Shoulder Black T-Shirt", price: 650, old: 990, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400" },
+            { cat: "mens", brand: "DENIM", title: "Stretchable Blue Casual Denim Jeans", price: 1350, old: 1850, img: "https://images.unsplash.com/photo-1542272604-780c36856842?w=400" },
+
+            // Women's Wear
+            { cat: "womens", brand: "BOUTIQUE", title: "Exclusive Floral Digital Printed 3-Piece", price: 1850, old: 2500, img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400" },
+            { cat: "womens", brand: "ELEGANT", title: "Designer Embroidered Cotton Kurti Set", price: 1250, old: 1750, img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400" },
+            { cat: "womens", brand: "LUXURY BAG", title: "PU Leather Crossbody Handbag for Women", price: 1450, old: 1990, img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400" }
         ];
 
         let cartCount = 0;
         const grid = document.getElementById('productGrid');
 
-        // Generating Unique Categorized Products
-        for(let i = 1; i <= 300; i++) {
-            let item = catalogTemplates[i % catalogTemplates.length];
-            let variant = styleVariants[i % styleVariants.length];
-            
-            let uniqueTitle = `${item.name} - ${variant}`;
-            let price = item.basePrice + ((i * 15) % 500);
-            let oldPrice = price + 400 + ((i * 5) % 200);
-            let discount = Math.round(((oldPrice - price) / oldPrice) * 100);
+        // Render Database Products
+        function renderProducts(items) {
+            grid.innerHTML = "";
+            items.forEach((item) => {
+                let discount = Math.round(((item.old - item.price) / item.old) * 100);
+                let card = document.createElement('div');
+                card.className = 'product-card';
+                card.setAttribute('data-cat', item.cat);
+                card.setAttribute('data-name', item.title.toLowerCase());
 
-            let card = document.createElement('div');
-            card.className = 'product-card';
-            card.setAttribute('data-cat', item.key);
-            card.setAttribute('data-name', uniqueTitle.toLowerCase());
-
-            card.innerHTML = `
-                <span class="badge-discount">-${discount}% OFF</span>
-                <div class="product-img-box">
-                    <img src="${item.img}" alt="${uniqueTitle}">
-                </div>
-                <div>
-                    <div class="product-brand">${item.cat}</div>
-                    <div class="product-title">${uniqueTitle}</div>
-                    <div class="price-row">
-                        <div class="current-price">৳${price}</div>
-                        <div class="old-price">৳${oldPrice}</div>
+                card.innerHTML = `
+                    <span class="badge-discount">-${discount}% OFF</span>
+                    <div class="product-img-box">
+                        <img src="${item.img}" alt="${item.title}">
                     </div>
-                </div>
-                <button class="btn-order" onclick="buyWhatsApp('${uniqueTitle}', ${price})">
-                    <i class="fa-brands fa-whatsapp"></i> অর্ডার করুন
-                </button>
-            `;
-            grid.appendChild(card);
+                    <div>
+                        <div class="product-brand">${item.brand}</div>
+                        <div class="product-title">${item.title}</div>
+                        <div class="price-row">
+                            <div class="current-price">৳${item.price}</div>
+                            <div class="old-price">৳${item.old}</div>
+                        </div>
+                    </div>
+                    <button class="btn-order" onclick="buyWhatsApp('${item.title}', ${item.price})">
+                        <i class="fa-brands fa-whatsapp"></i> অর্ডার করুন
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
         }
 
-        // Filter Category Function
+        // Initial Load
+        renderProducts(productsDatabase);
+
+        // Filter Category
         function filterCategory(catKey, element) {
             if(element) {
                 let chips = document.getElementsByClassName('filter-chip');
@@ -653,24 +655,20 @@
                 element.classList.add('active');
             }
 
-            let cards = document.getElementsByClassName('product-card');
-            for (let card of cards) {
-                let cardCat = card.getAttribute('data-cat');
-                if (catKey === 'all' || cardCat === catKey) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
+            if(catKey === 'all') {
+                renderProducts(productsDatabase);
+            } else {
+                let filtered = productsDatabase.filter(p => p.cat === catKey);
+                renderProducts(filtered);
             }
 
             scrollToSec('productListSec');
         }
 
-        // WhatsApp Direct Order Function
         function buyWhatsApp(pName, price) {
             cartCount++;
             document.getElementById('cartCount').innerText = cartCount;
-            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please process my order!`;
+            let msg = `Hello MR SERAJ (ScamX Store)! I want to order: ${pName} - Price: ৳${price}. Please confirm details.`;
             let url = `https://wa.me/8801765314487?text=${encodeURIComponent(msg)}`;
             window.open(url, '_blank');
         }
@@ -683,19 +681,10 @@
             document.getElementById(secId).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Search Filter Engine
         function filterProducts() {
             let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('product-card');
-
-            for (let card of cards) {
-                let name = card.getAttribute('data-name');
-                if (name.includes(input)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            }
+            let filtered = productsDatabase.filter(p => p.title.toLowerCase().includes(input) || p.brand.toLowerCase().includes(input));
+            renderProducts(filtered);
         }
     </script>
 </body>
